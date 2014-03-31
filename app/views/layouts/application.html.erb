@@ -25,11 +25,15 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
             <% if current_user.logged_in? %>
-              <li>Logged as <%= current_user.name %></li>
+              <li><%= current_user.name  %></li>
+              <li><%= image_tag("github_32.png") if session[:provider] == "github"  %></li>
+              <li><%= image_tag("bitbucket_32.png") if session[:provider] == "bitbucket"  %></li>
               <li><%= link_to "Logout", logout_path %></li>
             <% else %>
-              <li><%= link_to "Sign in with Github", "/auth/github" %></li>
-              <li><%= link_to "Sign in with Bitbucket", "/auth/bitbucket" %></li>
+              <li><%= link_to "Sign in with" %></li>
+              <li><%= link_to image_tag("github_32.png"), "/auth/github", :width => 30 %></li>
+              <li><%= link_to image_tag("bitbucket_32.png"), "/auth/bitbucket" %></li>
+              <li><%= params[:provider] %></li>
             <% end %>
         </ul>
       </div><!-- /.navbar-collapse -->

@@ -2,16 +2,15 @@ class SessionsController < ApplicationController
   def github
     user = GithubAuthentication.from_omniauth(env["omniauth.auth"])
     session[:user] = user.uid
-
+    session[:provider] = "github"
     redirect_to root_url, notice: "Hello, #{user.name}!"
   end
 
   def bitbucket
     user = BitbucketAuthentication.from_omniauth(env["omniauth.auth"])
     session[:user] = user.uid
-
+    session[:provider] = "bitbucket"
     redirect_to root_url, notice: "Hello, #{user.name}!"
-
   end
 
   def destroy
