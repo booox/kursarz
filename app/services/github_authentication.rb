@@ -8,7 +8,7 @@ class GithubAuthentication
 
     def create_from_omniauth(auth)
       User.create! do |user|
-        user.uid = auth["uid"]
+        user.uid = auth["uid"].to_s
         user.provider = auth["provider"]
         user.login = auth["info"]["nickname"]
         user.name = auth["info"]["name"]
