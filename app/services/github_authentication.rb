@@ -1,7 +1,7 @@
 class GithubAuthentication
   class << self
     def from_omniauth(auth)
-      User.where(auth.slice("uid")).first || create_from_omniauth(auth)
+      User.where(auth.slice("provider", "uid")).first || create_from_omniauth(auth)
     end
 
     private
