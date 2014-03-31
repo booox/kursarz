@@ -9,6 +9,7 @@ gem 'ffaker'
 gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
 gem 'omniauth-github', '~> 1.0.1'
+gem 'omniauth-bitbucket'
 gem 'paranoia'
 gem 'pg'
 gem 'poltergeist', group: :test

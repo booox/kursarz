@@ -1,6 +1,11 @@
 class SessionsController < ApplicationController
   def create
-    user = GithubAuthentication.from_omniauth(env["omniauth.auth"])
+    if params[:provider].eql? "github"
+      user = GithubAuthentication.from_omniauth(env["omniauth.auth"])
+    elsif params[:provider].eql? "bitbucket"
+      user = BitbucketAuthentication.from_omniauth(env["omniauth.auth"])
+    end
+    
     session[:user] = user.uid
 
     redirect_to root_url, notice: "Hello, #{user.name}!"
