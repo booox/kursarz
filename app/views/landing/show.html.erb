@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <div class="jumbotron">
+      <h1>Start learning now</h1>
+      <% if current_user.logged_in? %>
+        <p><a class="btn btn-primary btn-lg pagination-center" href="<%= courses_path %>" role="button">Browse our courseware</a></p>
+      <% else %>
+        <p><a class="btn btn-primary btn-lg" href="/auth/github" role="button">Sign in with Github</a></p>
+      <% end %>
+    </div>
+
+  </div>
+  <div class="col-md-3"></div>
+</div>
+
