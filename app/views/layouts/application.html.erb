@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Kursarz</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'bootstrap', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -16,6 +16,8 @@
 <% end %>
 
 <%= yield %>
+
+<iframe width="#{width}" height="#{height}" src="http://www.youtube.com/embed/xdxVBiJe8Co" frameborder="0"></iframe>
 
 </body>
 </html>
