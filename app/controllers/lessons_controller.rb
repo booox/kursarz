@@ -7,6 +7,12 @@ class LessonsController < ApplicationController
 
   def create
     @lesson = @course.lessons.create(lesson_params)
+
+    if @lesson.save
+      redirect_to courses_path, notice: "You have successfully added a lesson."
+    else
+      redirect_to courses_path, error: "There was an error processing your request. Please try again later."
+    end
   end
 
   def index

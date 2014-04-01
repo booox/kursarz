@@ -1,3 +1,17 @@
 <h1><%= @course.name %></h1>
 
 <%= raw RedCloth.new(@course.description).to_html %>
+
+<table>
+  <% @lessons.each do |lesson| %>
+    <tr>
+      <td><%= lesson.name %></td>
+    </tr>
+    <tr>
+      <td><%= lesson.description %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "Add new lesson", new_course_lesson_path(@course.id) %>
+<%= link_to "Back to courses", courses_path %>

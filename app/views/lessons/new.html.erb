@@ -1,6 +1,6 @@
 Create new lesson for course <%= @course.name %>
 
-<%= form_for @lesson, role: 'form' do |f| %>
+<%= form_for [@course, @lesson], role: 'form', role: 'form' do |f| %>
  <div class="form_group" >
     <%= f.label :name %>
     <%= f.text_field :name %>
