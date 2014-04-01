@@ -4,6 +4,7 @@ class Course < ActiveRecord::Base
 	validates :short_description, length: { maximum: 8000}
 
   acts_as_url :name
+  has_many :lessons
 
   def to_parm
     url

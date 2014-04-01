@@ -21,7 +21,7 @@ class LessonsController < ApplicationController
   private
 
   def set_course
-    @course = Course.find_by!(url: params[:course_id)
+    @course = Course.find_by!(id: params[:course_id])
   end
 
   def lesson_params
