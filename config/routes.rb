@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resource :landing, only: :show
 
-  resources :courses, only: [:index, :show]
+  resources :courses, only: [:index, :show, :create, :new]
 
   get 'logout', to: 'sessions#destroy'
   get 'auth/github/callback', to: 'sessions#github'

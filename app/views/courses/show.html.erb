@@ -1,0 +1,3 @@
+<h1><%= @course.name %></h1>
+
+<%= raw RedCloth.new(@course.description).to_html %>
