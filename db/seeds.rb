@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+#
+#
+
+
+Course.create!(
+   name: "Rails for Zombies",
+   description: "Basic Rails course"
+)
