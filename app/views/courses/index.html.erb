@@ -1,7 +1,10 @@
 <table>
   <% @courses.each do |course| %>
     <tr>
-      <td><%= course.name %></td>
+      <td><%= link_to course.name, course_path(course.url) %></td>
+    </tr>
+    <tr>
+      <td><%= course.short_description %></td>
     </tr>
   <% end %>
 </table>

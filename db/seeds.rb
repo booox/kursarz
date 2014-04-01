@@ -11,5 +11,6 @@
 
 Course.create!(
    name: "Rails for Zombies",
+   short_description: "Rails for zombies basic course",
    description: "Basic Rails course"
 )

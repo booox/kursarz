@@ -4,6 +4,6 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @course.find(params[:id])
+    Course.find_by!(url: params[:id])
   end
 end
