@@ -10,4 +10,7 @@ class Course < ActiveRecord::Base
     url
   end
 
+  def screenshot_url
+    self.screenshot_url ||= lessions.first.try(:screenshot_url)
+  end
 end
