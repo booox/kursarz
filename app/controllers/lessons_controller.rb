@@ -7,8 +7,8 @@ class LessonsController < ApplicationController
 
   def create
     @lesson = @course.lessons.create(lesson_params)
-    video_id = @lesson.video_url.sub(/(\S)*watch\?v=/, "")
-    @lesson.screenshot_url = "http://img.youtube.com/vi/#{ video_id }/0.jpg"
+    # video_id = @lesson.video_url.sub(/(\S)*watch\?v=/, "")
+    # @lesson.screenshot_url = "http://img.youtube.com/vi/#{ video_id }/0.jpg"
 
     if @lesson.save
       redirect_to courses_path, notice: "You have successfully added a lesson."
