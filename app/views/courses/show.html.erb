@@ -8,6 +8,9 @@
       <td><%= lesson.name %></td>
     </tr>
     <tr>
+      <td><%= image_tag lesson.screenshot_url, :width => 64, :height => 64 %></td>
+    </tr>
+    <tr>
       <td><%= lesson.description %></td>
     </tr>
   <% end %>
