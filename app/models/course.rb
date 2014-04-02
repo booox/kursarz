@@ -11,6 +11,6 @@ class Course < ActiveRecord::Base
   end
 
   def screenshot_url
-    self.screenshot_url ||= lessions.first.try(:screenshot_url)
+    super || lessons.first.try(:screenshot_url)
   end
 end

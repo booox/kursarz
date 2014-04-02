@@ -3,6 +3,9 @@
 <table>
   <% @courses.each do |course| %>
     <tr>
+      <td><%= image_tag course.screenshot_url, width: 85, height: 85 %></td>
+    </tr>
+    <tr>
       <td><%= link_to course.name, course_path(course.url) %></td>
     </tr>
     <tr>
