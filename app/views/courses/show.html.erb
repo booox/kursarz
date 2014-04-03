@@ -1,6 +1,6 @@
 <h1><%= @course.name %></h1>
 
-<%= raw render_markdown(@course.description) %>
+<%= render_markdown(@course.description) %>
 
 <table>
   <% @lessons.each do |lesson| %>
@@ -16,5 +16,21 @@
   <% end %>
 </table>
 
+<table>
+  <% @assignments.each do |assignment| %>
+    <tr>
+      <td><%= assignment.name %></td>
+    </tr>
+    <tr>
+      <td><%= image_tag assignment.screenshot_url, :width => 64, :height => 64 %></td>
+    </tr>
+    <tr>
+      <td><%= render_markdown(assignment.short_description) %></td>
+    </tr>
+  <% end %>
+</table>
+
+
 <%= link_to "Add new lesson", new_course_lesson_path(@course.id) %>
+<%= link_to "Add new assignment", new_course_assignment_path(@course.id) %>
 <%= link_to "Back to courses", courses_path %>

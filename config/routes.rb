@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
 	resources :courses, only: [:index, :show, :create, :new] do
 		resources :lessons, only: [:index, :show, :create, :new]
-	end 
-	
+    resources :assignments, only: [:index, :show, :create, :new]
+	end
 
   get 'logout', to: 'sessions#destroy'
   get 'auth/github/callback', to: 'sessions#github'

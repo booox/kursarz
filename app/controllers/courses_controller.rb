@@ -6,6 +6,7 @@ class CoursesController < ApplicationController
   def show
     @course = Course.find_by!(url: params[:id])
     @lessons = @course.lessons
+    @assignments = @course.assignments
   end
 
   def new
