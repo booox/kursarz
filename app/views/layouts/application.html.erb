@@ -5,6 +5,14 @@
   <%= stylesheet_link_tag    'bootstrap', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <script>
+    $( document ).ready(function() {
+        var myCodeMirror = CodeMirror(document.body, {
+          lineNumbers: true
+        });
+    });
+  </script>
 </head>
 <body>
   <div class="navbar navbar-default" role="navigation">
@@ -24,7 +32,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
             <% if current_user.logged_in? %>
-            <!-- needs refactor; empty links insteaf of reasonable css -->
+              <!-- needs refactor; empty links insteaf of reasonable css -->
               <li><%= link_to current_user.name  %></li> 
               <li><%= link_to image_tag("github_32.png") if session[:provider] == "github"  %></li>
               <li><%= link_to image_tag("bitbucket_32.png") if session[:provider] == "bitbucket"  %></li>

@@ -1,6 +1,6 @@
 Create new assignment for course <%= @assignment.name %>
 
-<%= form_for [@course, @assignment], role: 'form' do |f| %>
+<%= form_for [@course, @assignment] do |f| %>
  <div class="form_group" >
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -21,4 +21,6 @@ Create new assignment for course <%= @assignment.name %>
     <%= f.submit %>
   </div>
 <% end %>
+
+<input type="text-area" class="CodeMirror"></input>
 
