@@ -19,9 +19,8 @@ class LessonsController < ApplicationController
     @lessons = @course.lessons
   end
 
-
   def show
-    @lesson = @course.lessons.find(params[:id])
+    @lesson = LessonDecorator.new(@course.lessons.find(params[:id]))
   end
 
   private

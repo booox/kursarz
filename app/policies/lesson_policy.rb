@@ -1,6 +1,6 @@
-class CoursePolicy < Struct.new(:user, :course)
+class LessonPolicy < Struct.new(:user, :lesson)
   def create?
-    user.has_role?("admin") || user.has_role?("super_teacher")
+    user.has_role?("admin") || user.is_teacher_in?(lesson.course)
   end
 
   def update?

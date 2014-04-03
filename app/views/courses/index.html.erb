@@ -1,4 +1,6 @@
-<%= link_to "Create new course", new_course_path  %>
+<% if policy(Course.new).create? %>
+  <%= link_to "Create new course", new_course_path  %>
+<% end %>
 
 <table>
   <% @courses.each do |course| %>

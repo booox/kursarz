@@ -1,0 +1,5 @@
+<h1><%= @lesson.name %> in <%= @course.name %></h1>
+
+<%= render_markdown @lesson.description %>
+
+<%= youtube_iframe(@lesson.video_id) %>
