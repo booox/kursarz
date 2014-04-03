@@ -1,6 +1,6 @@
 <h1><%= @course.name %></h1>
 
-<%= raw RedCloth.new(@course.description).to_html %>
+<%= raw render_markdown(@course.description) %>
 
 <table>
   <% @lessons.each do |lesson| %>
@@ -11,7 +11,7 @@
       <td><%= image_tag lesson.screenshot_url, :width => 64, :height => 64 %></td>
     </tr>
     <tr>
-      <td><%= lesson.description %></td>
+      <td><%= render_markdown(lesson.description) %></td>
     </tr>
   <% end %>
 </table>

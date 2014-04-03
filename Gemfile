@@ -29,3 +29,8 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
 gem 'RedCloth'
+gem 'sidekiq'
+gem 'github-markdown', '~> 0.6.5'
+gem "markdown-rails"
+gem "redcarpet"
+gem "pygments.rb"
