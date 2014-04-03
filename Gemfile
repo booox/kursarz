@@ -34,3 +34,4 @@ gem 'github-markdown', '~> 0.6.5'
 gem "markdown-rails"
 gem "redcarpet"
 gem "pygments.rb"
+gem 'codemirror-rails'

@@ -11,10 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140401200932) do
+ActiveRecord::Schema.define(version: 20140403103427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assignment_submissions", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "assignment_id"
+    t.text     "output"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "assignments", force: true do |t|
+    t.string   "name"
+    t.string   "short_description"
+    t.text     "description"
+    t.integer  "course_id"
+    t.string   "screenshot_url"
+    t.string   "tests_file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", force: true do |t|
     t.string   "name",       null: false
