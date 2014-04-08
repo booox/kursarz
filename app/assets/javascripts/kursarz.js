@@ -5,4 +5,7 @@ $(document).ready(function () {
 	}).mouseleave(function() {
 		$(this).removeClass("open");
 	});
+	// Dropdown menu min-width;
+	var $dmenu = $('.dropdown-menu')
+	$dmenu.css('min-width', $dmenu.prev().outerWidth() + 'px');
 });
