@@ -6,7 +6,7 @@ class QuizzesController < ApplicationController
   end
 
   def create
-    @quiz = @course.quizzes.create(quiz_params)
+    @quiz = @course.quizzes.build(quiz_params)
 
     if @quiz.save
       redirect_to courses_path, notice: "You have successfully added a quiz."
