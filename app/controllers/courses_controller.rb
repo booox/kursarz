@@ -7,6 +7,7 @@ class CoursesController < ApplicationController
     @course = Course.find_by!(url: params[:id])
     @lessons = @course.lessons
     @assignments = @course.assignments
+    @quizzes = @course.quizzes
   end
 
   def new

@@ -30,10 +30,23 @@
   <% end %>
 </table>
 
+<table>
+  <% @quizzes.each do |quiz| %>
+    <tr>
+      <td><%= quiz.name %></td>
+    </tr>
+    <tr>
+      <td><%= render_markdown(quiz.short_description) %></td>
+    </tr>
+  <% end %>
+</table>
+
+
 <% if policy(Lesson.new).create? %>
   <%= link_to "Add new lesson", new_course_lesson_path(@course.id) %>
 <% end %>
 <% if policy(Assignment.new).create? %>
   <%= link_to "Add new assignment", new_course_assignment_path(@course.id) %>
 <% end %>
+<%= link_to "Add new quiz", new_course_quiz_path(@course.id) %>
 <%= link_to "Back to courses", courses_path %>

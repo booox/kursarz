@@ -6,6 +6,7 @@ class Course < ActiveRecord::Base
 
   has_many :lessons
   has_many :assignments
+  has_many :quizzes
 
   def to_parm
     url
