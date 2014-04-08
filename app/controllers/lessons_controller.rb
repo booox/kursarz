@@ -20,7 +20,7 @@ class LessonsController < ApplicationController
   end
 
   def show
-    @lesson = LessonDecorator.new(@course.lessons.find(params[:id]))
+    @lesson = @course.lessons.find(params[:id])
   end
 
   private
