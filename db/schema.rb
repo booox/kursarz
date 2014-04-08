@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140403222404) do
+ActiveRecord::Schema.define(version: 20140408084606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: true do |t|
+    t.string   "content",     null: false
+    t.integer  "question_id", null: false
+    t.boolean  "correct",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "assignment_submissions", force: true do |t|
     t.integer  "user_id"
@@ -48,7 +56,7 @@ ActiveRecord::Schema.define(version: 20140403222404) do
     t.datetime "updated_at"
   end
 
-  create_table "course_teachers", force: true do |t|
+  create_table "course_user_roles", force: true do |t|
     t.integer  "course_id",  null: false
     t.integer  "teacher_id", null: false
     t.datetime "created_at"
@@ -73,6 +81,22 @@ ActiveRecord::Schema.define(version: 20140403222404) do
     t.text     "description",    null: false
     t.string   "screenshot_url"
     t.string   "video_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "questions", force: true do |t|
+    t.string   "content",    null: false
+    t.integer  "quiz_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "quizzes", force: true do |t|
+    t.string   "name",              null: false
+    t.string   "short_description", null: false
+    t.text     "description"
+    t.integer  "course_id",         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
