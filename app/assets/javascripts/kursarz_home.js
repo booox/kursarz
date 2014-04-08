@@ -16,14 +16,7 @@ var skaluj = function() {
 	else $('body').css('background-size', newX + 'px ' + newY + 'px');
 }
 
-
-$(document).ready(function () {
-	// Dropdown menu on hover
-	$('.dropdown').mouseenter(function() {
-		$(this).addClass("open");
-	}).mouseleave(function() {
-		$(this).removeClass("open");
-	});
+$(document).ready(function() {
 	// Main page background scale
 	skaluj();
 });
