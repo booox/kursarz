@@ -6,6 +6,13 @@ body {
 ul.nav > li > a.avatar > img {
 	width: 32px; 
 	height: 32px;
+
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+}
+
+ul.nav > li.dropdown > a.avatar > img {
+	margin-left: 5px;
 }
 
 ul.nav > li > a.avatar {
