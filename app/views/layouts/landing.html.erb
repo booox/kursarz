@@ -7,10 +7,15 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag    'kursarz', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'kursarz_home', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'kursarz', 'data-turbolinks-track' => true %>
 </head>
 <body>
   <%= render 'shared/navigation_bar' %>
-  <%= yield %>
+  <div class="home-table">
+    <div class="home-table-cell">
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>

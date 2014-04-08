@@ -16,7 +16,8 @@ var skaluj = function() {
 	else $('body').css('background-size', newX + 'px ' + newY + 'px');
 }
 
-$(document).ready(function() {
+
+$(document).ready(function () {
 	// Main page background scale
 	skaluj();
 });
