@@ -1,16 +1,20 @@
-<a href="<%= courses_path %>" role="button" class="close" aria-hidden="true">&times;</a>
+<%= link_to '&times;'.html_safe, :back, role: "button", class: "close", "aria-hidden" => "true" %>
 <h1>Create new course</h1>
 
 <%= form_for @course, role: 'form' do |f| %>
- <div class="form_group" >
+  <div class="form_group" >
     <%= f.label :name %>
     <%= f.text_field :name, class: "form-control"  %>
- </div>
- <div class="form_group" >
+  </div>
+  <div class="form_group" >
     <%= f.label :short_description %>
     <%= f.text_field :short_description, class: "form-control" %>
   </div>
-   <div class="form_group" >
+  <div class="form_group" >
+    <%= f.label :screenshot_url %>
+    <%= f.text_field :screenshot_url, class: "form-control" %>
+  </div>
+  <div class="form_group" >
     <%= f.label :description %>
     <%= f.text_area :description, class: "form-control", rows: 7 %>
   </div>

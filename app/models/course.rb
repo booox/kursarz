@@ -1,6 +1,6 @@
 class Course < ActiveRecord::Base
 	validates :short_description, length: { maximum: 500 }
-	validates :short_description, length: { maximum: 8000}
+	validates :short_description, length: { maximum: 8000 }
 
   acts_as_url :name
 
@@ -12,6 +12,6 @@ class Course < ActiveRecord::Base
   end
 
   def screenshot_url
-    super || lessons.first.try(:screenshot_url)
+    super || lessons.first.try(:screenshot_url) || "holder.js/400x300/auto/sky/text:#{name}"
   end
 end
