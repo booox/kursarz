@@ -1,4 +1,4 @@
-<a href="<%= courses_path %>" role="button" class="close" aria-hidden="true">&times;</a>
+<%= link_to '&times;'.html_safe, :back, role: "button", class: "close", "aria-hidden" => "true" %>
 <h1>Create new course</h1>
 
 <%= form_for @course, role: 'form' do |f| %>
