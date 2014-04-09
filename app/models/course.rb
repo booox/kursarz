@@ -12,6 +12,6 @@ class Course < ActiveRecord::Base
   end
 
   def screenshot_url
-    super || lessons.first.try(:screenshot_url)
+    super || "holder.js/400x300/sky/text:#{name}"
   end
 end
