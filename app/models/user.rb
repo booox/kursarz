@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
     return if course.nil? || course.new_record?
     courses.pluck(:id).include?(course.id)
   end
+
+  def is_signed?(course)
+    CourseRole.exists?(course_id: course.id, user_id: self.id)
+  end
 end
