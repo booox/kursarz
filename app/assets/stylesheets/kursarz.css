@@ -68,3 +68,12 @@ a.thumbnail > .caption > p {
 	height: 40px;
 	overflow: hidden;
 }
+
+/* Forms */
+textarea {
+	resize: vertical;
+}
+
+.form_group {
+	margin: 15px auto;
+}

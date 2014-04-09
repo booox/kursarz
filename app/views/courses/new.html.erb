@@ -1,19 +1,20 @@
-Create new course
+<a href="<%= courses_path %>" role="button" class="close" aria-hidden="true">&times;</a>
+<h1>Create new course</h1>
 
 <%= form_for @course, role: 'form' do |f| %>
  <div class="form_group" >
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control"  %>
  </div>
  <div class="form_group" >
     <%= f.label :short_description %>
-    <%= f.text_field :short_description %>
+    <%= f.text_field :short_description, class: "form-control" %>
   </div>
    <div class="form_group" >
     <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: "form-control", rows: 7 %>
   </div>
   <div class="form_group">
-    <%= f.submit %>
+    <input class="btn btn-primary" type="submit" value="Create course">
   </div>
 <% end %>
