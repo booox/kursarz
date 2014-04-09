@@ -10,15 +10,24 @@
   <%= javascript_include_tag 'kursarz', 'data-turbolinks-track' => true %>
 
   <script>
-    $( document ).ready(function() {
+    /*$( document ).ready(function() {
         var myCodeMirror = CodeMirror(document.body, {
           lineNumbers: true
         });
-    });
+    });*/
   </script>
 </head>
 <body>
   <%= render 'shared/navigation_bar' %>
-  <%= yield %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2">&nbsp;</div>
+      <div class="col-sm-8">
+        <%= yield %>
+      </div>
+      <div class="col-sm-2">&nbsp;</div>
+    </div>
+  </div>
+  
 </body>
 </html>

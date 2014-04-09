@@ -49,3 +49,17 @@ ul.nav > li > a.avatar {
 	-webkit-border-radius: 12px;
 	text-align: center;
 }
+/* Admin panel - "create new coure" etc.*/
+.admin-panel {
+	margin: 10px auto 30px;
+	text-align: center;
+}
+
+/* Thumbnails */
+a.thumbnail:hover {
+	text-decoration: none;
+}
+
+a.thumbnail > .caption > h3 {
+	margin-top: 10px;
+}
