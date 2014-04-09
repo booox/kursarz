@@ -8,19 +8,18 @@
 <% end %>
 <!-- /wip -->
 
-<table>
-  <% @lessons.each do |lesson| %>
-    <tr>
-      <td><%= link_to lesson.name, course_lesson_path(@course, lesson) %></td>
-    </tr>
-    <tr>
-      <td><%= image_tag lesson.screenshot_url, :width => 64, :height => 64 %></td>
-    </tr>
-    <tr>
-      <td><%= render_markdown(lesson.description) %></td>
-    </tr>
-  <% end %>
-</table>
+<% @lessons.each do |lesson| %>
+  <div class="media">
+    <a class="pull-left" href="<%= course_lesson_path(@course, lesson) %>">
+      <img class="media-object" src="<%= lesson.screenshot_url %>" alt="<%= lesson.name %>">
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading"><%= link_to lesson.name, course_lesson_path(@course, lesson) %></h4>
+      <%= render_markdown(lesson.description) %>
+    </div>
+  </div>
+<% end %>
+
 
 <table>
   <% @assignments.each do |assignment| %>
