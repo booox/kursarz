@@ -63,3 +63,8 @@ a.thumbnail:hover {
 a.thumbnail > .caption > h3 {
 	margin-top: 10px;
 }
+
+a.thumbnail > .caption > p {
+	height: 40px;
+	overflow: hidden;
+}
