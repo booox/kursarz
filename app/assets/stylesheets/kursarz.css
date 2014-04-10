@@ -84,6 +84,13 @@ textarea {
 	padding-top: 15px;
 	border-top: 1px solid #E7E7E7;
 }
+.media:first-child {
+	margin-top: 15px;
+}
+.media:last-child {
+	padding-bottom: 30px;
+}
+
 .media img {
 	width: 100px;
 }

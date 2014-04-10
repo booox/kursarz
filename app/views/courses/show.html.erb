@@ -1,3 +1,4 @@
+<%= link_to '&times;'.html_safe, courses_path, role: "button", class: "close", "aria-hidden" => "true" %>
 <h1><%= @course.name %></h1>
 
 <%= render_markdown(@course.description) %>
@@ -7,9 +8,11 @@
   <%= form_for [@course, @course_role], url: course_course_signups_path(@course), role: 'form', role: 'form' do |f| %>
     <%= f.submit "Signup", class: "btn btn-primary" %>
   <% end %>
+<% else %>
+  <span class="label label-success">Registered</span>
 <% end %>
 <!-- /wip -->
-
+<div class="course-list">
 <% @lessons.each do |lesson| %>
   <div class="media">
     <a class="pull-left" href="<%= course_lesson_path(@course, lesson) %>">
@@ -22,25 +25,26 @@
   </div>
 <% end %>
 
+<% @assignments.each do |assignment| %>
+  <div class="media">
+    <a class="pull-left" href="<%= course_lesson_path(@course, assignment) %>">
+      <img class="media-object" src="<%= assignment.screenshot_url %>" alt="<%= assignment.name %>">
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading"><%= link_to assignment.name, course_lesson_path(@course, assignment) %></h4>
+      <%= render_markdown(assignment.description) %>
+    </div>
+  </div>
+<% end %>
+</div>
 
-<table>
-  <% @assignments.each do |assignment| %>
-    <tr>
-      <td><%= assignment.name %></td>
-    </tr>
-    <tr>
-      <td><%= image_tag assignment.screenshot_url, :width => 64, :height => 64 %></td>
-    </tr>
-    <tr>
-      <td><%= render_markdown(assignment.short_description) %></td>
-    </tr>
-  <% end %>
-</table>
-
+<div class="admin-panel">
+  <div class="btn-group">
 <% if policy(Lesson.new).create? %>
-  <%= link_to "Add new lesson", new_course_lesson_path(@course.id) %>
+  <a href="<%= new_course_lesson_path(@course.id) %>" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add new lesson</a>
 <% end %>
 <% if policy(Assignment.new).create? %>
-  <%= link_to "Add new assignment", new_course_assignment_path(@course.id) %>
+  <a href="<%= new_course_assignment_path(@course.id) %>" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add new assignment</a>
 <% end %>
-<%= link_to "Back to courses", courses_path %>
+  </div>
+</div>

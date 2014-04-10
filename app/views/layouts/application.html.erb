@@ -21,17 +21,17 @@
 <body>
   <%= render 'shared/navigation_bar' %>
 
-  <% if flash[:notice] %>
-    <div class="alert alert-success"><%= flash[:notice] %></div>
-  <% end %>
-  <% if flash[:error] %>
-    <div class="alert alert-warning"><%= flash[:error] %></div>
-  <% end %>
-
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-2">&nbsp;</div>
       <div class="col-sm-8">
+        <% if flash[:notice] %>
+          <div class="alert alert-success"><%= flash[:notice] %></div>
+        <% end %>
+        <% if flash[:error] %>
+          <div class="alert alert-warning"><%= flash[:error] %></div>
+        <% end %>
+        
         <%= yield %>
       </div>
       <div class="col-sm-2">&nbsp;</div>
