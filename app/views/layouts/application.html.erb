@@ -24,12 +24,12 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-2">&nbsp;</div>
-      <div class="col-sm-8">
+      <div class="col-sm-8" id="main-page">
         <% if flash[:notice] %>
           <div class="alert alert-success"><%= flash[:notice] %></div>
         <% end %>
         <% if flash[:error] %>
-          <div class="alert alert-warning"><%= flash[:error] %></div>
+          <div class="alert alert-danger"><%= flash[:error] %></div>
         <% end %>
         
         <%= yield %>
