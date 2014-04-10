@@ -7,7 +7,7 @@ class Course < ActiveRecord::Base
   has_many :lessons
   has_many :assignments
 
-  def to_parm
+  def to_param
     url
   end
 
