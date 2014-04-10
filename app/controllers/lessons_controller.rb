@@ -9,9 +9,9 @@ class LessonsController < ApplicationController
     @lesson = @course.lessons.create(lesson_params)
 
     if @lesson.save
-      redirect_to courses_path, notice: "You have successfully added a lesson."
+      redirect_to course_path(@course), notice: "You have successfully added a lesson."
     else
-      redirect_to courses_path, error: "There was an error processing your request. Please try again later."
+      redirect_to course_path(@course), error: "There was an error processing your request. Please try again later."
     end
   end
 
@@ -26,7 +26,7 @@ class LessonsController < ApplicationController
   private
 
   def set_course
-    @course = Course.find_by!(id: params[:course_id])
+    @course = Course.find_by!(url: params[:course_id])
   end
 
   def lesson_params

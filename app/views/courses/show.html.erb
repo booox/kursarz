@@ -42,10 +42,10 @@
 <div class="admin-panel">
   <div class="btn-group">
 <% if policy(Lesson.new).create? %>
-  <a href="<%= new_course_lesson_path(@course.id) %>" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add new lesson</a>
+  <a href="<%= new_course_lesson_path(@course) %>" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add new lesson</a>
 <% end %>
 <% if policy(Assignment.new).create? %>
-  <a href="<%= new_course_assignment_path(@course.id) %>" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add new assignment</a>
+  <a href="<%= new_course_assignment_path(@course) %>" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add new assignment</a>
 <% end %>
   </div>
 </div>
