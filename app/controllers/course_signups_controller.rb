@@ -1,10 +1,10 @@
 class CourseSignupsController < ApplicationController
 	def create
-		# @course = Course.find(params[:course_id])
+		@course = Course.find_by!(url: params[:course_id])
 		@course_role = CourseRole.new
 		@course_role.user_id = current_user.id
-		@course_role.course_id = params[:course_id]
-		
+		@course_role.course_id = @course.id
+
 		if @course_role.save
 	      redirect_to courses_path, notice: "You've successfully signed up for course."
 	    else
