@@ -3,6 +3,12 @@ Rails.application.routes.draw do
 
   resource :landing, only: :show
 
+  resource :user, only: [:edit, :update], scope: :users
+
+  namespace :user do
+    resources :courses, only: [:index]
+  end
+
 	resources :courses, only: [:index, :show, :create, :new] do
 		resources :lessons, only: [:index, :show, :create, :new, :destroy]
     resources :assignments, only: [:index, :show, :create, :new]
