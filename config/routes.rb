@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   resource :landing, only: :show
 
-
 	resources :courses, only: [:index, :show, :create, :new] do
 		resources :lessons, only: [:index, :show, :create, :new, :destroy]
     resources :assignments, only: [:index, :show, :create, :new]

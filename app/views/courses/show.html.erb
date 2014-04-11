@@ -1,8 +1,3 @@
-<%= link_to '&times;'.html_safe, courses_path, role: "button", class: "close", "aria-hidden" => "true" %>
-<h1><%= @course.name %></h1>
-
-<%= render_markdown(@course.description) %>
-
 <!-- wip -->
 <% if current_user.is_signed_up_for?(@course) %>
   <span class="label label-success">Signed up</span>
@@ -12,6 +7,23 @@
   <% end %>
 <% end %>
 <!-- /wip -->
+
+<div class="admin-panel">
+  <div class="btn-group">
+<% if policy(Lesson.new).create? %>
+  <a href="<%= new_course_lesson_path(@course) %>" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add new lesson</a>
+<% end %>
+<% if policy(Assignment.new).create? %>
+  <a href="<%= new_course_assignment_path(@course) %>" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add new assignment</a>
+<% end %>
+  </div>
+</div>
+
+<%= link_to '&times;'.html_safe, courses_path, role: "button", class: "close", "aria-hidden" => "true" %>
+<h1><%= @course.name %></h1>
+
+<%= render_markdown(@course.description) %>
+
 <div class="course-list">
 <% @lessons.each do |lesson| %>
   <div class="media">
@@ -39,15 +51,4 @@
     </div>
   </div>
 <% end %>
-</div>
-
-<div class="admin-panel">
-  <div class="btn-group">
-<% if policy(Lesson.new).create? %>
-  <a href="<%= new_course_lesson_path(@course) %>" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add new lesson</a>
-<% end %>
-<% if policy(Assignment.new).create? %>
-  <a href="<%= new_course_assignment_path(@course) %>" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add new assignment</a>
-<% end %>
-  </div>
 </div>
