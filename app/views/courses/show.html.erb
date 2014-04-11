@@ -4,9 +4,9 @@
 <%= render_markdown(@course.description) %>
 
 <!-- wip -->
-<% if current_user.is_signed?(@course) %>
+<% if current_user.is_signed_up_for?(@course) %>
   <span class="label label-success">Signed up</span>
-<% else %>  
+<% else %>
   <%= form_for [@course, @course_role], url: course_course_signups_path(@course), role: 'form', role: 'form' do |f| %>
     <%= f.submit "Sign up", class: "btn btn-primary" %>
   <% end %>
@@ -22,7 +22,7 @@
       <h4 class="media-heading"><%= link_to lesson.name, course_lesson_path(@course, lesson) %></h4>
       <%= render_markdown(lesson.description) %>
       <button type="button" class="btn btn-link pull-right">
-        
+
       <%= link_to content_tag(:span, ''), course_lesson_path(@course, lesson), class: "glyphicon glyphicon-trash", method: :delete %>
     </div>
   </div>

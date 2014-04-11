@@ -24,8 +24,8 @@ class LessonsController < ApplicationController
   end
 
   def destroy
-    Lesson.find(params[:id]).destroy
-    redirect_to course_path(@course)
+    @course.lessons.find(params[:id]).destroy
+    redirect_to course_path(@course), notice: 'Lesson successfully destroyed'
   end
 
   private
