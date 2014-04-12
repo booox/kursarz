@@ -1,9 +1,9 @@
 <%= link_to '&times;'.html_safe, :back, role: "button", class: "close", "aria-hidden" => "true" %>
 <h1>Create new course</h1>
 
-<%= form_for @course, role: 'form' do |f| %>
+<%= form_for @course, url: { action: :update }, role: 'form' do |f| %>
   <%= render 'form', f: f %>
   <div class="form_group">
-    <input class="btn btn-primary" type="submit" value="Create course">
+    <input class="btn btn-primary" type="submit" value="Update course">
   </div>
 <% end %>
