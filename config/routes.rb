@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 	resources :courses do
 		resources :lessons, only: [:index, :show, :create, :new, :destroy]
     resources :assignments, only: [:index, :show, :create, :new]
-    resources :course_signups, only: [:create]
+    resources :course_signups, only: [:create, :destroy]
 	end
 
   get 'logout', to: 'sessions#destroy'

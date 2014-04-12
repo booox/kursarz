@@ -9,6 +9,9 @@ class Course < ActiveRecord::Base
 
   has_many :course_roles
 
+  has_many :students, -> { joins(:course_roles).where(course_roles: { name: 'student' } ) }, through: :course_roles, source: :user
+  has_many :teachers, -> { joins(:course_roles).where(course_roles: { name: 'teacher' } ) }, through: :course_roles, source: :user
+
   def to_param
     url
   end

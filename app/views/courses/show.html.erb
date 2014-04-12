@@ -1,6 +1,6 @@
 <!-- wip -->
 <% if current_user.is_signed_up_for?(@course) %>
-  <a href="#" role="button" class="btn btn-danger">Leave</a>
+  <a href="<%= course_course_signup_path(@course, id: @course.id) %>" role="button" data-method="delete" class="btn btn-danger">Leave</a>
 <% else %>
   <%= form_for [@course, @course_role], url: course_course_signups_path(@course), role: 'form', role: 'form' do |f| %>
     <%= f.submit "Sign up", class: "btn btn-primary" %>
