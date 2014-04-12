@@ -2,6 +2,10 @@ class Lesson < ActiveRecord::Base
   before_save :generate_screenshot_url
   belongs_to :course
 
+  validates :name, presence: true
+  validates :short_description, presence: true
+  validates :description, presence: true
+
   def video_id
     self.video_url.sub(/(\S)*watch\?v=/, "")
   end

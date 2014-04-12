@@ -1,6 +1,7 @@
 class Course < ActiveRecord::Base
-	validates :short_description, length: { maximum: 500 }
-	validates :short_description, length: { maximum: 8000 }
+  validates :name, presence: true
+  validates :short_description, presence: true
+  validates :description, presence: true
 
   acts_as_url :name
 
@@ -16,6 +17,7 @@ class Course < ActiveRecord::Base
     url
   end
 
+  # TODO: this method belongs to decorator
   def screenshot_url
     super || lessons.first.try(:screenshot_url) || "holder.js/750x563/auto/sky/text:#{name}"
   end
