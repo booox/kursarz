@@ -1,6 +1,6 @@
 <!-- wip -->
 <% if current_user.is_signed_up_for?(@course) %>
-  <span class="label label-success">Signed up</span>
+  <a href="#" role="button" class="btn btn-danger">Leave</a>
 <% else %>
   <%= form_for [@course, @course_role], url: course_course_signups_path(@course), role: 'form', role: 'form' do |f| %>
     <%= f.submit "Sign up", class: "btn btn-primary" %>
@@ -10,12 +10,16 @@
 
 <div class="admin-panel">
   <div class="btn-group">
-<% if policy(Lesson.new).create? %>
-  <a href="<%= new_course_lesson_path(@course) %>" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add new lesson</a>
-<% end %>
-<% if policy(Assignment.new).create? %>
-  <a href="<%= new_course_assignment_path(@course) %>" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add new assignment</a>
-<% end %>
+    <% if policy(Lesson.new).create? %>
+      <a href="<%= new_course_lesson_path(@course) %>" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add new lesson</a>
+    <% end %>
+    <% if policy(Assignment.new).create? %>
+      <a href="<%= new_course_assignment_path(@course) %>" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add new assignment</a>
+    <% end %>
+
+    <a href="<%= %>" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add new quiz</a>
+    <a href="<%= %>" role="button" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit course</a>
+    <a href="<%= %>" role="button" class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span> Destroy course</a>
   </div>
 </div>
 
