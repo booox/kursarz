@@ -1,26 +1,39 @@
-Create new assignment for course <%= @assignment.name %>
+<%= stylesheet_link_tag 'codemirror/codemirror' %>
+<%= stylesheet_link_tag 'codemirror/themes/twilight' %>
+<%= javascript_include_tag 'codemirror/codemirror' %>
+
+<h1>Create new assignment for course <%= @course.name %></h1>
 
 <%= form_for [@course, @assignment] do |f| %>
  <div class="form_group" >
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
  </div>
   <div class="form_group" >
     <%= f.label :short_description %>
-    <%= f.text_field :short_description %>
+    <%= f.text_field :short_description, class: "form-control" %>
   </div>
   <div class="form_group" >
     <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: "form-control" %>
   </div>
   <div class="form_group" >
     <%= f.label :tests %>
-    <%= f.text_area :tests %>
+    <%= f.text_area :tests, class: "form-control", rows: 20, id: "code" %>
   </div>
   <div class="form_group">
     <%= f.submit %>
   </div>
 <% end %>
 
-<input type="text-area" class="CodeMirror"></input>
-
+<script>
+  $(document).ready(function() {
+      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+          mode: 'text/x-ruby',
+          theme: 'twilight',
+          lineNumbers: true,
+          styleActiveLine: true,
+          matchBrackets: true
+      });
+  });
+</script>
