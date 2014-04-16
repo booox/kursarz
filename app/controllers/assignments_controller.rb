@@ -19,7 +19,6 @@ class AssignmentsController < ApplicationController
     @assignments = @course.assignments
   end
 
-
   def show
     @assignment = @course.assignments.find(params[:id])
   end
