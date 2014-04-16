@@ -1,0 +1,29 @@
+<%= form_for [@course, @quiz] do |f| %>
+  <fieldset>
+    <legend>Add a new quiz</legend>
+
+    <input type="text" name="quiz[name]" placeholder="Name"></input>
+    <input type="text" name="quiz[short_description]" placeholder="Short description"></input>
+    <input type="text" name="quiz[description]" placeholder="Description"></input>
+
+    <div class="singleQuestion">
+      <input type="text" name="quiz[questions_attributes][][content]" placeholder="Question" />
+      <div class="singleAnswer">
+        <input type="text" name="quiz[questions_attributes][][answers_attributes][][content]" placeholder="Answer" />
+      </div> <!-- /singleAnswer -->
+    </div> <!-- /singleAnswer -->
+
+    <div id="answer-row">
+      <a href="#add-feature">&plus; another question</a> <span></span>
+    </div> <!-- /answer-row -->
+
+    <div id="answer-row">
+      <a href="#add-feature">&plus; another answer</a> <span></span>
+    </div> <!-- /answer-row -->
+
+  </fieldset>
+
+  <div class="submitCont">
+    <input type="submit" value="Add new quiz">
+  </div> <!-- /submitCont -->
+<% end %>
