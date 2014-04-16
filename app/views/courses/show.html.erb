@@ -1,52 +1,57 @@
+<!-- wip -->
+<% if current_user.is_signed_up_for?(@course) %>
+  <a href="<%= course_course_signup_path(@course, id: @course.id) %>" role="button" data-method="delete" class="btn btn-danger">Leave</a>
+<% else %>
+  <%= form_for [@course, @course_role], url: course_course_signups_path(@course), role: 'form', role: 'form' do |f| %>
+    <%= f.submit "Sign up", class: "btn btn-primary" %>
+  <% end %>
+<% end %>
+<!-- /wip -->
+
+<div class="admin-panel">
+  <div class="btn-group">
+    <% if policy(Lesson.new).create? %>
+      <a href="<%= new_course_lesson_path(@course) %>" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add new lesson</a>
+    <% end %>
+    <% if policy(Assignment.new).create? %>
+      <a href="<%= new_course_assignment_path(@course) %>" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add new assignment</a>
+    <% end %>
+
+    <a href="<%= %>" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add new quiz</a>
+    <a href="<%= edit_course_path(@course) %>" role="button" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit course</a>
+    <a href="<%= course_path(@course) %>" role="button" data-confirm="Are you sure? THIS IS IRREVERSIBLE" data-method="delete" class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span> Destroy course</a>
+  </div>
+</div>
+
+<%= link_to '&times;'.html_safe, courses_path, role: "button", class: "close", "aria-hidden" => "true" %>
 <h1><%= @course.name %></h1>
 
 <%= render_markdown(@course.description) %>
 
-<table>
-  <% @lessons.each do |lesson| %>
-    <tr>
-      <td><%= link_to lesson.name, course_lesson_path(@course, lesson) %></td>
-    </tr>
-    <tr>
-      <td><%= image_tag lesson.screenshot_url, :width => 64, :height => 64 %></td>
-    </tr>
-    <tr>
-      <td><%= render_markdown(lesson.description) %></td>
-    </tr>
-  <% end %>
-</table>
-
-<table>
-  <% @assignments.each do |assignment| %>
-    <tr>
-      <td><%= assignment.name %></td>
-    </tr>
-    <tr>
-      <td><%= image_tag assignment.screenshot_url, :width => 64, :height => 64 %></td>
-    </tr>
-    <tr>
-      <td><%= render_markdown(assignment.short_description) %></td>
-    </tr>
-  <% end %>
-</table>
-
-<table>
-  <% @quizzes.each do |quiz| %>
-    <tr>
-      <td><%= quiz.name %></td>
-    </tr>
-    <tr>
-      <td><%= render_markdown(quiz.short_description) %></td>
-    </tr>
-  <% end %>
-</table>
-
-
-<% if policy(Lesson.new).create? %>
-  <%= link_to "Add new lesson", new_course_lesson_path(@course.id) %>
+<div class="course-list">
+<% @lessons.each do |lesson| %>
+  <div class="media">
+    <a class="pull-left" href="<%= course_lesson_path(@course, lesson) %>">
+      <img class="media-object" src="<%= lesson.screenshot_url %>" alt="<%= lesson.name %>">
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading"><%= link_to lesson.name, course_lesson_path(@course, lesson) %></h4>
+      <%= render_markdown(lesson.description) %>
+      <button type="button" class="btn btn-link pull-right">
+      <%= link_to content_tag(:span, ''), course_lesson_path(@course, lesson), class: "glyphicon glyphicon-trash", method: :delete %>
+    </div>
+  </div>
 <% end %>
-<% if policy(Assignment.new).create? %>
-  <%= link_to "Add new assignment", new_course_assignment_path(@course.id) %>
+
+<% @assignments.each do |assignment| %>
+  <div class="media">
+    <a class="pull-left" href="<%= course_lesson_path(@course, assignment) %>">
+      <img class="media-object" src="<%= assignment.screenshot_url %>" alt="<%= assignment.name %>">
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading"><%= link_to assignment.name, course_lesson_path(@course, assignment) %></h4>
+      <%= render_markdown(assignment.description) %>
+    </div>
+  </div>
 <% end %>
-<%= link_to "Add new quiz", new_course_quiz_path(@course.id) %>
-<%= link_to "Back to courses", courses_path %>
+</div>

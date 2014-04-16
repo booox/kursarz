@@ -23,11 +23,12 @@ module Kursarz
     config.generators do |g|
       g.stylesheets false
       g.javascripts false
-      g.decorators  false
+      g.decorator   false
       g.helper      false
+
+      g.test_framework :rspec, :fixture => false
     end
 
     config.autoload_paths += Dir[Rails.root.join('app', 'services')]
-
   end
 end

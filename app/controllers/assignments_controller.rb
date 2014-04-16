@@ -9,9 +9,9 @@ class AssignmentsController < ApplicationController
     @assignment = @course.assignments.create(assignment_params)
 
     if @assignment.save
-      redirect_to courses_path, notice: "You have successfully added a assignment."
+      redirect_to course_path(@course), notice: "You have successfully added a assignment."
     else
-      redirect_to courses_path, error: "There was an error processing your request. Please try again later."
+      redirect_to course_path(@course), error: "There was an error processing your request. Please try again later."
     end
   end
 
@@ -27,7 +27,7 @@ class AssignmentsController < ApplicationController
   private
 
   def set_course
-    @course = Course.find_by!(id: params[:course_id])
+    @course = Course.find_by!(url: params[:course_id])
   end
 
   def assignment_params

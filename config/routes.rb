@@ -3,10 +3,17 @@ Rails.application.routes.draw do
 
   resource :landing, only: :show
 
-	resources :courses, only: [:index, :show, :create, :new] do
-		resources :lessons, only: [:index, :show, :create, :new]
+  resource :user, only: [:edit, :update], scope: :users
+
+  namespace :user do
+    resources :courses, only: [:index]
+  end
+
+	resources :courses do
+		resources :lessons, only: [:index, :show, :create, :new, :destroy]
     resources :assignments, only: [:index, :show, :create, :new]
     resources :quizzes, only: [:index, :show, :create, :new]
+    resources :course_signups, only: [:create, :destroy]
 	end
 
   get 'logout', to: 'sessions#destroy'

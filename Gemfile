@@ -14,7 +14,7 @@ gem 'paranoia'
 gem 'pg'
 gem 'poltergeist', group: :test
 gem 'pundit', '~> 0.2.1'
-gem 'rails', '4.1.0.rc2'
+gem 'rails', '4.1.0'
 gem 'rails_autolink'
 gem 'rails_best_practices', group: :development
 gem 'rspec-rails', '~> 3.0.0.beta', group: :test

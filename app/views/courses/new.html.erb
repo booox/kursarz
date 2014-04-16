@@ -1,19 +1,9 @@
-Create new course
+<%= link_to '&times;'.html_safe, :back, role: "button", class: "close", "aria-hidden" => "true" %>
+<h1>Create new course</h1>
 
 <%= form_for @course, role: 'form' do |f| %>
- <div class="form_group" >
-    <%= f.label :name %>
-    <%= f.text_field :name %>
- </div>
- <div class="form_group" >
-    <%= f.label :short_description %>
-    <%= f.text_field :short_description %>
-  </div>
-   <div class="form_group" >
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
+  <%= render 'form', f: f %>
   <div class="form_group">
-    <%= f.submit %>
+    <input class="btn btn-primary" type="submit" value="Create course">
   </div>
 <% end %>

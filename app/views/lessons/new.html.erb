@@ -1,20 +1,21 @@
-Create new lesson for course <%= @course.name %>
+<%= link_to '&times;'.html_safe, :back, role: "button", class: "close", "aria-hidden" => "true" %>
+<h1>Create new lesson for course <%= @course.name %></h1>
 
 <%= form_for [@course, @lesson], role: 'form', role: 'form' do |f| %>
  <div class="form_group" >
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
  </div>
   <div class="form_group" >
     <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: "form-control", rows: 7 %>
   </div>
   <div class="form_group" >
     <%= f.label :video_url %>
-    <%= f.text_area :video_url %>
+    <%= f.text_field :video_url, class: "form-control" %>
   </div>
   <div class="form_group">
-    <%= f.submit %>
+    <input class="btn btn-primary" type="submit" value="Create lesson">
   </div>
 <% end %>
 

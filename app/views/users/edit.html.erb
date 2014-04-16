@@ -1,0 +1,17 @@
+<%= form_for current_user, url: { action: :update}, role: 'form' do |f| %>
+  <div class="form_group" >
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control"  %>
+  </div>
+  <div class="form_group" >
+    <%= f.label :description %>
+    <%= f.text_field :description, class: "form-control" %>
+  </div>
+  <div class="form_group" >
+    <%= f.label :avatar_url %>
+    <%= f.text_field :avatar_url, class: "form-control" %>
+  </div>
+  <div class="form_group">
+    <input class="btn btn-primary" type="submit" value="Update profile">
+  </div>
+<% end %>
