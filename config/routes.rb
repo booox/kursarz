@@ -14,7 +14,9 @@ Rails.application.routes.draw do
 
 	resources :courses do
 		resources :lessons, only: [:index, :show, :create, :new, :destroy]
-    resources :assignments, only: [:index, :show, :create, :new]
+    resources :assignments, only: [:index, :show, :create, :new] do
+      resources :assignment_submissions, only: [:show, :create, :new]
+    end
     resources :quizzes, only: [:index, :show, :create, :new]
     resources :course_signups, only: [:create, :destroy]
 	end
