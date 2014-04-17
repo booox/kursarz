@@ -1,7 +1,7 @@
-class RubyAssignmentRunner < Struct.new(:assignment_id, :assignment_submission_id)
+class RubyAssignmentRunner < Struct.new(:assignment_submission_id)
   def run!
     @assignment = Assignment.find(assignment_id)
-    @assignment_submission = AssignmentSubmission.find(assignment_solution_id)
+    @assignment_submission = @assignment.assignment_submission
 
     filename = "#{@assignment.id}#{Time.now}#{@assignment_submission.user_id}"
     test_filename = "#{filename}_spec.rb"
@@ -11,9 +11,13 @@ class RubyAssignmentRunner < Struct.new(:assignment_id, :assignment_submission_i
     f.close
 
     f = File.new("#{filename}_spec.rb", "w+")
-    f.write(@assignment.code)
+    f.puts("require_relative '#{filename}'")
+    f.puts
+    f.puts(@assignment.code)
     f.close
 
     output = %x{ rspec #{test_filename} }
+
+    [$?, output]
   end
 end

@@ -21,6 +21,9 @@ class AssignmentsController < ApplicationController
 
   def show
     @assignment = @course.assignments.find(params[:id])
+    @assignment_submission = @assignment.assignment_submissions.build
+    @assignment_submissions = @assignment.assignment_submissions
+    @last_submission = @assignment.assignment_submissions.last
   end
 
   private

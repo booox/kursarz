@@ -1,4 +1,4 @@
-class AssigmentSubmissionWorker
+class AssignmentSubmissionWorker
   include Sidekiq::Worker
 
   def perform!(assignment_submission_id)

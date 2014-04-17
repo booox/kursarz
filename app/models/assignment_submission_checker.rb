@@ -4,6 +4,7 @@ class AssignmentChecker < Struct.new(:assignment_submission_id)
     @assignment= @assignment_submission.assignment
 
     @assignment_submission.status, @assignment_submission.output = runner.run!
+    @assignment_submission.pending = false
     @assignment_submission.save!
   end
 
@@ -11,6 +12,6 @@ class AssignmentChecker < Struct.new(:assignment_submission_id)
 
   def runner
     @runner ||= "#{@assignment.language.capitalize}AssignmentRunner"
-      .constantize.new(assignment_id)
+      .constantize.new(assignment_submission_id)
   end
 end

@@ -49,7 +49,7 @@
       <img class="media-object" src="<%= assignment.screenshot_url %>" alt="<%= assignment.name %>">
     </a>
     <div class="media-body">
-      <h4 class="media-heading"><%= link_to assignment.name, course_lesson_path(@course, assignment) %></h4>
+      <h4 class="media-heading"><%= link_to assignment.name, course_assignment_path(@course, assignment) %></h4>
       <%= render_markdown(assignment.description) %>
     </div>
   </div>
