@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root "landing#show"
 
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
   resource :landing, only: :show
 
   resource :user, only: [:edit, :update], scope: :users
