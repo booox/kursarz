@@ -41,8 +41,6 @@ class Assignment
   change_language: () =>
     language = @language_selector.val()
 
-    console.log language
-
     @editor.setOption "value", TEMPLATES[language]
     @editor.setOption "mode", language
 
