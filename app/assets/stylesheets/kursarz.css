@@ -6,8 +6,7 @@ body {
 	padding-top: 70px;
 }
 
-/* nav */
-.navbar-brand > img {
+/* nav */ .navbar-brand > img {
 	height: 15px;
 	margin-top: -5px;
 }
@@ -105,3 +104,7 @@ textarea {
 }
 
 .media .media-body p {margin-bottom: 0;}
+
+#course_description {
+  display: none;
+}
