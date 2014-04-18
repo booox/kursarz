@@ -20,6 +20,11 @@ class RubyAssignmentRunner
 
     output = %x{ rspec #{test_filename}.rb }
 
-    [$? == 0 ? 0 : 1, output]
+    # save returned status code and output
+    result = [$? == 0 ? 0 : 1, output]
+
+    %x{ rm #{filename}.rb #{test_filename}.rb }
+
+    result
   end
 end
