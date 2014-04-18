@@ -1,29 +1,38 @@
+<%= javascript_include_tag 'quiz_form' %>
+
 <%= form_for [@course, @quiz] do |f| %>
   <fieldset>
     <legend>Add a new quiz</legend>
+    
+    <div class="form_group">
+    <input type="text" class="form-control" name="quiz[name]" placeholder="Name"></input>
+    </div>
+    <div class="form_group">
+    <input type="text" class="form-control" name="quiz[short_description]" placeholder="Short description"></input>
+    </div>
+    <div class="form_group">
+    <input type="text" name="quiz[description]" placeholder="Description" class="form-control"></input>
+    </div>
 
-    <input type="text" name="quiz[name]" placeholder="Name"></input>
-    <input type="text" name="quiz[short_description]" placeholder="Short description"></input>
-    <input type="text" name="quiz[description]" placeholder="Description"></input>
+    <div id="questions">
+      <div class="singleQuestion">
+        <legend>Question</legend>
+        <div class="form-group">
+          <input type="text" class="form-control" name="quiz[questions_attributes][][content]" placeholder="Question" />
+        </div>
 
-    <div class="singleQuestion">
-      <input type="text" name="quiz[questions_attributes][][content]" placeholder="Question" />
-      <div class="singleAnswer">
-        <input type="text" name="quiz[questions_attributes][][answers_attributes][][content]" placeholder="Answer" />
-      </div> <!-- /singleAnswer -->
-    </div> <!-- /singleAnswer -->
+        <div class="form-group">
+          <input type="text" class="form-control" name="quiz[questions_attributes][][answers_attributes][][content]" placeholder="Answer" />
+        </div>
+        <a class="add-answer" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> answer</a>
+      </div>
+    </div>
 
-    <div id="answer-row">
-      <a href="#add-feature">&plus; another question</a> <span></span>
-    </div> <!-- /answer-row -->
-
-    <div id="answer-row">
-      <a href="#add-feature">&plus; another answer</a> <span></span>
-    </div> <!-- /answer-row -->
+    <a id="add-question" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> question</a>
 
   </fieldset>
 
   <div class="submitCont">
-    <input type="submit" value="Add new quiz">
+    <input type="submit" class="btn btn-primary" value="Add new quiz">
   </div> <!-- /submitCont -->
 <% end %>
