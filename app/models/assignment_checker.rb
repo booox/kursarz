@@ -14,6 +14,6 @@ class AssignmentChecker
 
   def runner
     @runner ||= "#{@assignment.language.capitalize}AssignmentRunner"
-      .constantize.new(@assignment_submission.id)
+      .constantize.new(@assignment_submission)
   end
 end

@@ -1,6 +1,6 @@
 class RubyAssignmentRunner
-  def initialize(assignment_submission_id)
-    @assignment_submission = AssignmentSubmission.find(assignment_submission_id)
+  def initialize(assignment_submission)
+    @assignment_submission = assignment_submission
     @assignment = @assignment_submission.assignment
   end
 
