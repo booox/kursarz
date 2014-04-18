@@ -1,6 +1,8 @@
 <%= stylesheet_link_tag 'codemirror/codemirror' %>
 <%= stylesheet_link_tag 'codemirror/themes/twilight' %>
 
+<%= javascript_include_tag 'assignment' %>
+
 <%= link_to '&times;'.html_safe, :back, role: "button", class: "close", "aria-hidden" => "true" %>
 
 <h1>Create new assignment for course <%= @course.name %></h1>
@@ -17,6 +19,10 @@
   <div class="form_group" >
     <%= f.label :description %>
     <%= f.text_area :description, class: "form-control" %>
+  </div>
+  <div class="form_group">
+    <%= f.label :language %>
+    <%= f.select :language, options_for_select(Assignment::LANGUAGES) %>
   </div>
   <div class="form_group" >
     <%= f.label :code %>
