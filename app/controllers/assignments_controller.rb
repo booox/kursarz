@@ -33,6 +33,6 @@ class AssignmentsController < ApplicationController
   end
 
   def assignment_params
-    params.require(:assignment).permit(:name, :short_description, :description, :screenshot_url, :tests_file)
+    params.require(:assignment).permit(:name, :short_description, :description, :screenshot_url, :tests_file, :language)
   end
 end

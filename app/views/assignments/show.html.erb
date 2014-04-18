@@ -4,6 +4,11 @@
 
 <h1><%= @assignment.name %></h1>
 
+<% @assignment_submissions.each do |assignment_submission| %>
+  <%= assignment_submission.status %>
+  <%= assignment_submission.output %>
+<% end %>
+
 <%= @assignment.description %>
 
 <%= form_for [@course, @assignment, @assignment_submission] do |f| %>
