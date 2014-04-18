@@ -1,6 +1,5 @@
 <%= stylesheet_link_tag 'codemirror/codemirror' %>
 <%= stylesheet_link_tag 'codemirror/themes/twilight' %>
-<%= javascript_include_tag 'codemirror/codemirror' %>
 
 <%= link_to '&times;'.html_safe, :back, role: "button", class: "close", "aria-hidden" => "true" %>
 
@@ -23,15 +22,3 @@
 <% else %>
   <%= @last_submission.output %>
 <% end %>
-
-<script>
-  $(document).ready(function() {
-      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-          mode: 'text/x-ruby',
-          theme: 'twilight',
-          lineNumbers: true,
-          styleActiveLine: true,
-          matchBrackets: true
-      });
-  });
-</script>

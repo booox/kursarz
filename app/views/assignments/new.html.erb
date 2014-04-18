@@ -1,6 +1,5 @@
 <%= stylesheet_link_tag 'codemirror/codemirror' %>
 <%= stylesheet_link_tag 'codemirror/themes/twilight' %>
-<%= javascript_include_tag 'codemirror/codemirror' %>
 
 <%= link_to '&times;'.html_safe, :back, role: "button", class: "close", "aria-hidden" => "true" %>
 
@@ -20,22 +19,10 @@
     <%= f.text_area :description, class: "form-control" %>
   </div>
   <div class="form_group" >
-    <%= f.label :tests %>
-    <%= f.text_area :tests, class: "form-control", rows: 20, id: "code" %>
+    <%= f.label :code %>
+    <%= f.text_area :code, class: "form-control", rows: 20, id: "code" %>
   </div>
   <div class="form_group">
     <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
-
-<script>
-  $(document).ready(function() {
-      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-          mode: 'text/x-ruby',
-          theme: 'twilight',
-          lineNumbers: true,
-          styleActiveLine: true,
-          matchBrackets: true
-      });
-  });
-</script>
