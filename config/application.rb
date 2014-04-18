@@ -30,5 +30,6 @@ module Kursarz
     end
 
     config.autoload_paths += Dir[Rails.root.join('app', 'services')]
+    config.autoload_paths += Dir[Rails.root.join('app', 'models', '{**}')]
   end
 end
