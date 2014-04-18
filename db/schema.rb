@@ -66,13 +66,6 @@ ActiveRecord::Schema.define(version: 20140417223901) do
     t.string   "name"
   end
 
-  create_table "course_user_roles", force: true do |t|
-    t.integer  "course_id",  null: false
-    t.integer  "teacher_id", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "courses", force: true do |t|
     t.string   "name"
     t.integer  "category_id"
