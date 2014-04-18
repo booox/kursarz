@@ -5,9 +5,7 @@ FactoryGirl.define do
     name { "Sample name" }
     provider { 'github' }
   end
-end
 
-FactoryGirl.define do
   factory :course do
     name { 'Example course' }
     short_description { 'Very short description' }

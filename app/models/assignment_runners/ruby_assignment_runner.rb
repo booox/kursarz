@@ -1,8 +1,10 @@
-class RubyAssignmentRunner < Struct.new(:assignment_submission_id)
-  def run!
+class RubyAssignmentRunner
+  def initialize(assignment_submission_id)
     @assignment = Assignment.find(assignment_id)
     @assignment_submission = @assignment.assignment_submission
+  end
 
+  def run!
     filename = "#{@assignment.id}#{Time.now}#{@assignment_submission.user_id}"
     test_filename = "#{filename}_spec.rb"
 
