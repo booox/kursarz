@@ -1,4 +1,5 @@
 class AssignmentSubmission < ActiveRecord::Base
+  enum status: [:passed, :failed]
   belongs_to :assignment
 
   after_create :check_assignment
