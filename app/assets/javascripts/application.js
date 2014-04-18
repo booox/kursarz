@@ -12,6 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require codemirror
+//= require codemirror/codemirror
 //= require turbolinks
 //= require holder/holder

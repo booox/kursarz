@@ -19,7 +19,7 @@
   </div>
   <div class="form_group">
     <%= f.label :language %>
-    <%= f.select :language, options_for_select(Assignment::LANGUAGES) %>
+    <%= f.select :language, options_for_select(Assignment::LANGUAGES), class: "form-control" %>
   </div>
   <div class="form_group" >
     <%= f.label :code %>

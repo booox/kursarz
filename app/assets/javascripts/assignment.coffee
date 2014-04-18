@@ -1,18 +1,18 @@
 class Assignment
   TEMPLATES =
     ruby: """
-      describe 'the name of your test' do\n
-        it 'should do something'\n
-        # write your tests here\n
-        end\n
+      describe 'the name of your test' do
+        it 'should do something'
+          # write your tests here
+        end
       end
     """
 
     javascript: """
-      describe(\"A suite\", function() { \n
-        it(\"contains spec with an expectation\", function() { \n
-          expect(true).toBe(true);\n
-        });\n
+      describe("A suite", function() {
+        it("contains spec with an expectation\", function() {
+          expect(true).toBe(true);
+        });
       });
     """
 
@@ -32,12 +32,11 @@ class Assignment
       theme: 'twilight',
       lineNumbers: true,
       styleActiveLine: true,
-      matchBrackets: true
+      matchBrackets: true,
 
     @language_selector.on "change", @change_language
 
-    @editor.setOption "value", TEMPLATES["ruby"]
-    @editor.setOption "mode", "ruby"
+    @change_language()
 
   change_language: () =>
     language = @language_selector.val()
