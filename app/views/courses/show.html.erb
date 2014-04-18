@@ -29,11 +29,11 @@
 <h1><%= @course.name %></h1>
 
 <% if current_user.logged_in? %>
+  <button id="show_description" class="btn btn-primary">View details</button>
+
   <span id="course_description">
     <%= render_markdown(@course.description) %>
   </span>
-
-  <button id="show_description" class="btn btn-primary">View details</button>
 <% else %>
   <%= render_markdown(@course.description) %>
 <% end %>

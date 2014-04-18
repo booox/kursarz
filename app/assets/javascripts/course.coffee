@@ -11,7 +11,6 @@ class Course
     event.preventDefault()
 
     @course_description.toggle()
-    @show_description.toggle()
 
 $ ->
   new Course()
