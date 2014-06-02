@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
+ruby '2.1.2'
 
 gem 'capybara', group: :test, git: "https://github.com/jnicklas/capybara"
 gem 'coffee-rails', '~> 4.0.0'
