@@ -39,7 +39,7 @@ class Assignment
     @change_language()
 
   change_language: () =>
-    language = window.assignment_language or @language_selector.val()
+    language = @language_selector.val()
 
     @editor.setOption "value", TEMPLATES[language]
     @editor.setOption "mode", language
