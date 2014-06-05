@@ -15,7 +15,7 @@ class AssignmentSubmissionsController < ApplicationController
     @assignment_submission = @assignment.assignment_submissions
       .create(assignment_submission_params.merge(user: current_user))
 
-    redirect_to course_path(@course)
+    redirect_to course_assignment_path(@course, @assignment), notice: "Solution sent. Please visit this page in few minutes to see results."
   end
 
   def show
