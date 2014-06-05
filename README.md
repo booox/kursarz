@@ -53,3 +53,16 @@ Pobranie aktualnego mastera
 ### Konsola bazy danych
     
     rails db:console
+
+
+### Assignments
+
+Do obsługi zadań programistycznych używamy sidekiq, możemy go uruchomić
+
+    bundle exec sidekiq
+
+I powinien od tej chwili być dostępny pod localhost:3000/sidekiq
+
+Sidekiq wymaga zainstalowania redisa http://redis.io/, pod Ubuntu wystarczy wklepać
+
+    sudo apt-get install redis-server
