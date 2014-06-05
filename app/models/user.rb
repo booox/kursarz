@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   has_many :user_roles
   has_many :roles, through: :user_roles
 
+  has_many :assignment_submissions
+
   has_many :course_roles
   has_many :student_roles, -> { where(name: 'student') }, class_name: 'CourseRole'
   has_many :teacher_roles, -> { where(name: 'teacher') }, class_name: 'CourseRole'

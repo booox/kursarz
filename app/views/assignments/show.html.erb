@@ -4,11 +4,6 @@
 
 <h1><%= @assignment.name %></h1>
 
-<% @assignment_submissions.each do |assignment_submission| %>
-  <%= assignment_submission.status %>
-  <%= assignment_submission.output %>
-<% end %>
-
 <%= @assignment.description %>
 
 <%= form_for [@course, @assignment, @assignment_submission] do |f| %>
@@ -21,8 +16,19 @@
   </div>
 <% end %>
 
-<% if @last_submission.nil? || @last_submission.pending? %>
-  <h1>Checking in progress please wait</h1>
-<% else %>
-  <%= @last_submission.output %>
+<h2>Submissions</h2>
+<% @assignment_submissions.each do |assignment_submission| %>
+
+  <table class='table'>
+    <tr>
+      <td><%= assignment_submission.updated_at %></td>
+    </tr>
+    <tr>
+       <td><%= assignment_submission.status %></td>
+    </tr>
+    <tr>
+      <td><%= assignment_submission.output %></td>
+    </tr>
+  </table>
+
 <% end %>

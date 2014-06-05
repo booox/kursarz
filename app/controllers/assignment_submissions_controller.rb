@@ -13,7 +13,7 @@ class AssignmentSubmissionsController < ApplicationController
 
   def create
     @assignment_submission = @assignment.assignment_submissions
-      .create(assignment_submission_params)
+      .create(assignment_submission_params.merge(user: current_user))
 
     redirect_to course_path(@course)
   end

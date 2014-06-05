@@ -22,7 +22,7 @@ class AssignmentsController < ApplicationController
   def show
     @assignment = @course.assignments.find(params[:id])
     @assignment_submission = @assignment.assignment_submissions.build
-    @assignment_submissions = @assignment.assignment_submissions
+    @assignment_submissions = @assignment.assignment_submissions.by_user(current_user)
     @last_submission = @assignment.assignment_submissions.last
   end
 
@@ -33,6 +33,6 @@ class AssignmentsController < ApplicationController
   end
 
   def assignment_params
-    params.require(:assignment).permit(:name, :short_description, :description, :screenshot_url, :tests_file, :language)
+    params.require(:assignment).permit(:name, :short_description, :description, :screenshot_url, :code, :tests_file, :language)
   end
 end

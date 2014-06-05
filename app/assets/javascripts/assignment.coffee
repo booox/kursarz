@@ -2,7 +2,7 @@ class Assignment
   TEMPLATES =
     ruby: """
       describe 'the name of your test' do
-        it 'should do something'
+        it 'should do something' do
           # write your tests here
         end
       end
