@@ -1,5 +1,5 @@
 class Assignment < ActiveRecord::Base
-  LANGUAGES = ["ruby", "javascript", "python"].freeze
+  LANGUAGES = ["ruby", "javascript", "python", "coffeescript"].freeze
 
   belongs_to :course
 

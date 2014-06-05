@@ -24,6 +24,13 @@ class Assignment
             self.widget = Widget('The widget')
     """
 
+    coffeescript: """
+    describe 'something', ->
+
+        it 'should do something', ->
+            expect(true).toBe true
+    """
+
   constructor: ->
     code_input = document.getElementById 'code'
     @language_selector = $ '#assignment_language'
