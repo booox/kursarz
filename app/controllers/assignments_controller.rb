@@ -23,7 +23,10 @@ class AssignmentsController < ApplicationController
     @assignment = @course.assignments.find(params[:id])
     @assignment_submission = @assignment.assignment_submissions.build
     @assignment_submissions = @assignment.assignment_submissions.by_user(current_user)
-    @last_submission = @assignment.assignment_submissions.last
+
+    last_submission = @assignment.assignment_submissions.by_user(current_user).last
+
+    @code = last_submission.code
   end
 
   private

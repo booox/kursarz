@@ -9,7 +9,7 @@
 <%= form_for [@course, @assignment, @assignment_submission] do |f| %>
   <div class="form_group" >
     <%= f.label :code%>
-    <%= f.text_area :code, class: "form-control", rows: 20, id: "code" %>
+    <%= f.text_area :code, class: "form-control", value: @code, rows: 20, id: "code" %>
   </div>
   <div class="form_group">
     <%= f.submit class: "btn btn-primary" %>
