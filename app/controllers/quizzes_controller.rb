@@ -21,6 +21,7 @@ class QuizzesController < ApplicationController
 
   def show
     @quiz = @course.quizzes.find(params[:id])
+    @quiz_submissions = @quiz.quiz_submissions.by_user(current_user)
   end
 
   private

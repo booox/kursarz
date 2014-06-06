@@ -1,6 +1,8 @@
 class QuizChecker
-  def initialize(params)
+  def initialize(params, current_user)
     @params = params
+    @current_user = current_user
+    @quiz = Quiz.find(params[:quiz_id])
   end
 
   def check
@@ -15,7 +17,9 @@ class QuizChecker
       end
     end
 
-    quiz_submission = QuizSubmission.create!(score: score)
+    score = 0 if score < 0
+
+    @quiz.quiz_submissions.create!(score: score, user_id: @current_user.id)
   end
 
 end
