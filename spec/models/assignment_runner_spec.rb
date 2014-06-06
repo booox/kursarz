@@ -48,4 +48,28 @@ describe AssignmentRunner do
     end
 
   end
+
+  context 'coffeescript assignment runner' do
+
+    it 'runs the assignment and gives its exit code
+        \ assignment passed' do
+      assignment = create(:assignment, :coffeescript)
+      assignment_submission = create(:assignment_submission, :coffeescript, assignment: assignment)
+      runner = CoffeescriptAssignmentRunner.new(assignment_submission)
+
+      code, output = *runner.run!
+
+      expect(code).to eq 0
+    end
+
+    it 'runs the assignment and gives its exit code
+        \ assignment failed' do
+      assignment = create(:assignment, :coffeescript)
+      assignment_submission = create(:assignment_submission, :coffeescript_incorrect, assignment: assignment)
+      runner = CoffeescriptAssignmentRunner.new(assignment_submission)
+
+      expect(runner.run![0]).to eq 1
+    end
+
+  end
 end

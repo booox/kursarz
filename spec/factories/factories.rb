@@ -46,6 +46,19 @@ describe("computing square of number", function() {
   });
 });
       } }
+
+    end
+
+    trait :coffeescript do
+      language { "coffeescript" }
+
+      code {%q{
+describe 'computing square of number', ->
+
+    it 'should compute the square of numbers correctly', ->
+        expect(square(2)).toBe 4
+        expect(square(4)).toBe 16
+      }}
     end
   end
 
@@ -93,6 +106,26 @@ function square(x) {
     }}
 
       association :assignment, factory: [:assignment, :ruby]
+    end
+
+    trait :coffeescript do
+
+      code { %q{
+square = (x) ->
+  x * x
+      }}
+
+      association :assignment, factory: [:assignment, :coffeescript]
+    end
+
+    trait :coffeescript_incorrect do
+
+      code { %q{
+square = (x) ->
+  0
+      }}
+
+      association :assignment, factory: [:assignment, :coffeescript]
     end
   end
 end
