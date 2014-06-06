@@ -10,4 +10,8 @@ module ApplicationHelper
       frameborder="0"/>
     }
   end
+
+  def tr_class(assignment_submission)
+    assignment_submission.passed? ? "success" : "danger"
+  end
 end
