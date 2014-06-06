@@ -26,7 +26,7 @@ class AssignmentsController < ApplicationController
 
     last_submission = @assignment.assignment_submissions.by_user(current_user).last
 
-    @code = last_submission.code
+    @code = last_submission.try(:code)
   end
 
   private

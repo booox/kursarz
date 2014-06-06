@@ -19,33 +19,80 @@ FactoryGirl.define do
     short_description { 'Please compute the square of number' }
     description { 'Please compute the square of numbers' }
 
-    language { "Ruby" }
+    trait :ruby do
 
-    code { %q{
+      language { "Ruby" }
+
+      code { %q{
 describe 'computing square of number' do
   it 'should compute the square of numbers correctly' do
     expect(square(2)).to eq 4
     expect(square(4)).to eq 16
   end
 end
-    } }
+      } }
+
+    end
+
+    trait :javascript do
+
+      language { "javascript" }
+
+      code { %q{
+describe("computing square of number", function() {
+  it("should compute the square of numbers correctly", function() {
+    expect(square(2)).toBe(4);
+    expect(square(4)).toBe(16);
+  });
+});
+      } }
+    end
   end
 
   factory :assignment_submission do
     association :assignment, factory: :assignment
 
-    code { %q{
+    trait :ruby do
+
+      code { %q{
 def square(x)
   x * x
 end
-    }}
+      }}
 
-    trait :incorrect_submission do
+      association :assignment, factory: [:assignment, :ruby]
+    end
+
+    trait :ruby_incorrect do
       code { %q{
 def square(x)
   0
 end
       }}
+
+      association :assignment, factory: [:assignment, :ruby]
+    end
+
+    trait :javascript do
+
+      code { %q{
+function square(x) {
+  return x * x;
+}
+      }}
+
+      association :assignment, factory: [:assignment, :ruby]
+    end
+
+    trait :javascript_incorrect do
+
+      code { %q{
+function square(x) {
+  return 0;
+}
+    }}
+
+      association :assignment, factory: [:assignment, :ruby]
     end
   end
 end
