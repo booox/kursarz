@@ -8,7 +8,11 @@ class QuizChecker
 
     @params.keys.each do |answer_id|
       answer = Answer.find(Integer(answer_id)) rescue next
-      score += 10 if answer.correct?
+      if answer.correct?
+        score+=10
+      else
+        score-=10
+      end
     end
 
     quiz_submission = QuizSubmission.create!(score: score)
