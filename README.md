@@ -51,7 +51,7 @@ Pobranie aktualnego mastera
     rails server
 
 ### Konsola bazy danych
-    
+
     rails db:console
 
 
@@ -66,3 +66,9 @@ I powinien od tej chwili być dostępny pod localhost:3000/sidekiq
 Sidekiq wymaga zainstalowania redisa http://redis.io/, pod Ubuntu wystarczy wklepać
 
     sudo apt-get install redis-server
+
+Dodatkowo uruchamianie poszczególnych zadań wymaga zainstalowania środowisk wymaganych, odpowiednio
+
+Javascript i Coffeescript - Node.js, npm, jasmine-node
+Ruby - Ruby i RSpec (min 2.0)
+Python - Python i unittest
