@@ -8,7 +8,7 @@ class AssignmentSubmission
       styleActiveLine: true,
       matchBrackets: true
 
-    @editor.setOption "mode", "ruby"
+    @editor.setOption "mode", window.assignmentLanguage
 
 $ ->
   new AssignmentSubmission()
