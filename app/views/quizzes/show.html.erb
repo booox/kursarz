@@ -1,0 +1,26 @@
+<%= form_tag course_quiz_quiz_submissions_path(@course, @quiz, QuizSubmission.new) do %>
+
+  <% @quiz.questions.each do |question| %>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= question.content %>
+      </div>
+      <div class="panel-body">
+        <% question.answers.each do |answer| %>
+          <% if question.multiple_correct_answers? %>
+            <div class="checkbox">
+              <%= label_tag answer.content %>
+              <%= check_box_tag answer.id %>
+            </div><!-- /input-group -->
+          <% end %>
+        <% end %>
+
+      </div>
+    </div>
+
+  <% end %>
+
+  <%= submit_tag("Submit", :class => "submit") %>
+
+<% end %>

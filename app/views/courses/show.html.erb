@@ -68,4 +68,19 @@
     </div>
   </div>
 <% end %>
+
+<h2>Quizzes</h2>
+
+<% @quizzes.each do |quiz| %>
+  <div class="media">
+    <a class="pull-left" href="<%= course_quiz_path(@course, quiz) %>">
+      <img class="media-object" src="<%= quiz.screenshot_url %>" alt="<%= quiz.name %>">
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading"><%= link_to quiz.name, course_quiz_path(@course, quiz) %></h4>
+      <%= render_markdown(quiz.description) %>
+    </div>
+  </div>
+<% end %>
+
 </div>
