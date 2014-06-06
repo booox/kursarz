@@ -70,6 +70,29 @@ describe AssignmentRunner do
 
       expect(runner.run![0]).to eq 1
     end
-
   end
+
+   context 'python assignment runner' do
+
+    it 'runs the assignment and gives its exit code
+        \ assignment passed' do
+      assignment = create(:assignment, :python)
+      assignment_submission = create(:assignment_submission, :python, assignment: assignment)
+      runner = PythonAssignmentRunner.new(assignment_submission)
+
+      code, output = *runner.run!
+
+      expect(code).to eq 0
+    end
+
+    it 'runs the assignment and gives its exit code
+        \ assignment failed' do
+      assignment = create(:assignment, :python)
+      assignment_submission = create(:assignment_submission, :python_incorrect, assignment: assignment)
+      runner = PythonAssignmentRunner.new(assignment_submission)
+
+      expect(runner.run![0]).to eq 1
+    end
+
+ end
 end

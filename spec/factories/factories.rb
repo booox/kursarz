@@ -60,6 +60,25 @@ describe 'computing square of number', ->
         expect(square(4)).toBe 16
       }}
     end
+
+    trait :python do
+      language { "python" }
+
+      code { %q{
+import unittest
+
+class SquareCase(unittest.TestCase):
+    def test_square(self):
+        self.assertEqual(square(2), 4)
+        self.assertEqual(square(4), 16)
+
+def main():
+    unittest.main()
+
+if __name__ == "__main__":
+    main()
+      }}
+    end
   end
 
   factory :assignment_submission do
@@ -126,6 +145,26 @@ square = (x) ->
       }}
 
       association :assignment, factory: [:assignment, :coffeescript]
+    end
+
+    trait :python do
+
+      code { %q{
+def square(x):
+    return x * x
+      }}
+
+      association :assignment, factory: [:assignment, :python]
+    end
+
+    trait :python_incorrect do
+
+      code { %q{
+def square(x):
+    return 0
+      }}
+
+      association :assignment, factory: [:assignment, :python]
     end
   end
 end
