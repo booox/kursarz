@@ -19,9 +19,9 @@ class Assignment
     python: """
     import unittest
 
-    class SimpleWidgetTestCase(unittest.TestCase):
-        def setUp(self):
-            self.widget = Widget('The widget')
+    class ExampleTestCase(unittest.TestCase):
+        def test_example():
+          self.assertEqual(True, True)
     """
 
     coffeescript: """
