@@ -7,6 +7,10 @@ class CourseRole < ActiveRecord::Base
   belongs_to :course
   belongs_to :user
 
+  def self.create_head_teacher_role(params = {})
+    create(params.merge(name: 'head_teacher'))
+  end
+
   def self.create_teacher_role(params = {})
     create(params.merge(name: 'teacher'))
   end

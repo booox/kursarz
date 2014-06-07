@@ -6,11 +6,13 @@ class User < ActiveRecord::Base
 
   has_many :course_roles
   has_many :student_roles, -> { where(name: 'student') }, class_name: 'CourseRole'
+  has_many :head_teacher_roles, -> { where(name: 'head_teacher') }, class_name: 'CourseRole'
   has_many :teacher_roles, -> { where(name: 'teacher') }, class_name: 'CourseRole'
 
   has_many :courses, through: :course_roles
-  has_many :teached_courses, -> { joins(:course_roles).where(course_roles: { name: 'teacher' } ) }, through: :course_roles, source: :course
-  has_many :signup_courses, -> { joins(:course_roles).where(course_roles: { name: 'student' } ) }, through: :course_roles, source: :course
+  has_many :head_courses, through: :head_teacher_roles, source: :course
+  has_many :teached_courses, through: :teacher_roles, source: :course
+  has_many :signup_courses, through: :student_roles, source: :course
 
   def logged_in?
     true

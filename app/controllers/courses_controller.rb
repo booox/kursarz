@@ -17,6 +17,7 @@ class CoursesController < ApplicationController
 
   def create
     @course = Course.new(course_params)
+    CourseRole.create_head_teacher_role(course: @course, user: @current_user)
 
     if @course.save
       redirect_to courses_path, notice: "You've successfully added a course."

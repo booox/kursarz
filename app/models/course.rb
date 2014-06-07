@@ -13,9 +13,11 @@ class Course < ActiveRecord::Base
 
   has_many :student_roles, -> { where(course_roles: { name: 'student'})}, class_name: :CourseRole
   has_many :teacher_roles, -> { where(course_roles: { name: 'teacher'})}, class_name: :CourseRole
+  has_many :head_teacher_roles, -> { where(course_roles: { name: 'head_teacher'})}, class_name: :CourseRole
 
   has_many :students, through: :student_roles, source: :user
   has_many :teachers, through: :teacher_roles, source: :user
+  has_many :head_teachers, through: :head_teacher_roles, source: :user
 
   def to_param
     url
