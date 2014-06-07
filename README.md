@@ -80,3 +80,13 @@ Python - Python i unittest
     user = User.find_by(name: "nazwa_uzywtkownika")
 
     user.update_attribute(admin: true)
+
+### Wyszukiwanie
+
+Aby działało wyszukiwanie potrzebny jest elasticsearch http://www.elasticsearch.org/
+
+Po zainstalowaniu trzeba uruchomić
+
+    rails c
+
+    Course.reindex

@@ -1,4 +1,6 @@
 class Course < ActiveRecord::Base
+  searchkick
+
   validates :name, presence: true
   validates :short_description, presence: true
   validates :description, presence: true

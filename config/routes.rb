@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resource :user, only: [:edit, :update], scope: :users
 
+  get :search, to: "searches#search"
+
   namespace :user do
     resources :courses, only: [:index]
   end

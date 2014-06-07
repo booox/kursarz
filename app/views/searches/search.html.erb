@@ -1,0 +1,10 @@
+<h2>Search results for: <%= params[:q] %></h2>
+
+<% if @courses.empty? %>
+  <p>No courses were found.</p>
+<% end %>
+<div class="row">
+  <%= render 'shared/courses_list', courses: @courses%>
+</div>
+
+
