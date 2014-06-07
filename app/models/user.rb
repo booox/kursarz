@@ -48,4 +48,8 @@ class User < ActiveRecord::Base
   def can_create_courses?
     courses_limit - courses.count > 0
   end
+
+  def courses_limit
+    super || 0
+  end
 end

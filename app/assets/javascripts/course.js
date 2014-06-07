@@ -1,7 +1,10 @@
 $(document).ready(function() {
-	$('#show_description').click(function() {
-		console.log("dupa");
-		//event.preventDefault();
-		$('#course_description').animate({height:"toggle"});
-	});
+
+  if(window.isSignedUpForCourse) {
+    $('#show_description').click(function() {
+      $('#course_description').animate({height:"toggle"});
+    });
+  } else {
+    $('#course_description').show()
+  }
 });

@@ -1,3 +1,7 @@
+<script type='text/javascript'>
+  window.isSignedUpForCourse = <%= policy(@course).show? %>
+</script>
+
 <%= javascript_include_tag "course" %>
 
 <!-- wip -->
@@ -37,7 +41,10 @@
 <h1><%= @course.name %></h1>
 
 <% if current_user.logged_in? %>
-  <button id="show_description" class="btn btn-primary">View details</button>
+
+  <% if policy(@course).show? %>
+    <button id="show_description" class="btn btn-primary">View details</button>
+  <% end %>
 
   <span id="course_description">
     <%= render_markdown(@course.description) %>
@@ -45,6 +52,8 @@
 <% else %>
   <%= render_markdown(@course.description) %>
 <% end %>
+
+<% if policy(@course).show? %>
 
 <h2>Lessons</h2>
 
@@ -92,3 +101,5 @@
 <% end %>
 
 </div>
+
+<% end %>
