@@ -1,6 +1,10 @@
+User.destroy_all
 Course.destroy_all
 
+user = User.create(login: "johnexample", name: "John Example", provider: "github", uid: "1234")
+
 course = Course.create!(
+  user: user,
   name: "Example course with screenshot",
   short_description: "Short description of the example course",
   screenshot_url: "https://coursera-course-photos.s3.amazonaws.com/c4/e686907fbf11e3bfb3290ba1eec481/MOOCMap-highres.jpg",

@@ -5,10 +5,14 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find_by!(url: params[:id])
-    @lessons = @course.lessons
-    @assignments = @course.assignments
-    @quizzes = @course.quizzes
+    @lessons = @course.lessons.all
+    @assignments = @course.assignments.all
+    @quizzes = @course.quizzes.all
     @course_role = CourseRole.new
+
+    @assignment = @course.assignments.build
+    @quiz = @course.quizzes.build
+    @lesson = @course.lessons.build
   end
 
   def new
@@ -16,8 +20,7 @@ class CoursesController < ApplicationController
   end
 
   def create
-    @course = Course.new(course_params)
-    CourseRole.create_head_teacher_role(course: @course, user: @current_user)
+    @course = @user.courses.build(course_params)
 
     if @course.save
       redirect_to courses_path, notice: "You've successfully added a course."

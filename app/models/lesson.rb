@@ -1,6 +1,7 @@
 class Lesson < ActiveRecord::Base
   before_save :generate_screenshot_url
   belongs_to :course
+  belongs_to :user
 
   validates :name, presence: true
   validates :short_description, presence: true

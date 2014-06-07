@@ -2,11 +2,11 @@ class AssignmentsController < ApplicationController
   before_action :set_course
 
   def new
-    @assignment = @course.assignments.build
+    @assignment = @course.assignments.build(user: current_user)
   end
 
   def create
-    @assignment = @course.assignments.create(assignment_params)
+    @assignment = @course.assignments.create(assignment_params.merge(user: current_user))
 
     if @assignment.save
       redirect_to course_path(@course), notice: "You have successfully added a assignment."

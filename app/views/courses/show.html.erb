@@ -12,16 +12,24 @@
 
 <div class="admin-panel">
   <div class="btn-group">
-    <% if policy(Lesson.new).create? %>
+    <% if policy(@lesson).create? %>
       <a href="<%= new_course_lesson_path(@course) %>" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add new lesson</a>
     <% end %>
-    <% if policy(Assignment.new).create? %>
+    <% if policy(@assignment).create? %>
       <a href="<%= new_course_assignment_path(@course) %>" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add new assignment</a>
     <% end %>
 
-    <a href="<%= new_course_quiz_path(@course) %>" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add new quiz</a>
-    <a href="<%= edit_course_path(@course) %>" role="button" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit course</a>
-    <a href="<%= course_path(@course) %>" role="button" data-confirm="Are you sure? THIS IS IRREVERSIBLE" data-method="delete" class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span> Destroy course</a>
+    <% if policy(@quiz).create? %>
+      <a href="<%= new_course_quiz_path(@course) %>" role="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Add new quiz</a>
+    <% end %>
+
+    <% if policy(@course).update? %>
+      <a href="<%= edit_course_path(@course) %>" role="button" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit course</a>
+    <% end %>
+
+    <% if policy(@course).destroy? %>
+      <a href="<%= course_path(@course) %>" role="button" data-confirm="Are you sure? THIS IS IRREVERSIBLE" data-method="delete" class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span> Destroy course</a>
+    <% end %>
   </div>
 </div>
 

@@ -2,11 +2,11 @@ class QuizzesController < ApplicationController
   before_action :set_course
 
   def new
-    @quiz = @course.quizzes.build
+    @quiz = @course.quizzes.build(user: current_user)
   end
 
   def create
-    @quiz = @course.quizzes.build(quiz_params)
+    @quiz = @course.quizzes.build(quiz_params.merge(user: current_user))
 
     if @quiz.save
       redirect_to courses_path, notice: "You have successfully added a quiz."

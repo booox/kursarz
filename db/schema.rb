@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140607105745) do
+ActiveRecord::Schema.define(version: 20140607124008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20140607105745) do
     t.datetime "updated_at"
     t.string   "language"
     t.text     "example_solution"
+    t.integer  "user_id"
   end
 
   create_table "categories", force: true do |t|
@@ -90,6 +91,7 @@ ActiveRecord::Schema.define(version: 20140607105745) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "short_description"
+    t.integer  "user_id"
   end
 
   create_table "questions", force: true do |t|
@@ -114,6 +116,7 @@ ActiveRecord::Schema.define(version: 20140607105745) do
     t.integer  "course_id",         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "users", force: true do |t|

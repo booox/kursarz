@@ -2,11 +2,11 @@ class LessonsController < ApplicationController
   before_action :set_course
 
   def new
-    @lesson = @course.lessons.build
+    @lesson = @course.lessons.build(user: current_user)
   end
 
   def create
-    @lesson = @course.lessons.create(lesson_params)
+    @lesson = @course.lessons.create(lesson_params.merge(user: current_user))
 
     if @lesson.save
       redirect_to course_path(@course), notice: "You have successfully added a lesson."
