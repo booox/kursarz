@@ -7,7 +7,7 @@ class Quiz < ActiveRecord::Base
   accepts_nested_attributes_for :questions
 
   def screenshot_url
-    # super || "holder.js/750x563/auto/sky/text:#{name}"
+    super || "holder.js/750x563/auto/sky/text:#{name}"
   end
 
   def score
