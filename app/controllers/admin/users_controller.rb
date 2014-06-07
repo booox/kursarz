@@ -20,6 +20,6 @@ class Admin::UsersController < AdminController
   private
 
   def user_params
-    params.require(:user).permit(:admin)
+    params.require(:user).permit(:admin, :courses_limit)
   end
 end
