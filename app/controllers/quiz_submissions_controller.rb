@@ -6,4 +6,8 @@ class QuizSubmissionsController < ApplicationController
 
     redirect_to root_url
   end
+
+  def show
+    @quiz_submission = QuizSubmission.by_user(current_user).find(params[:id])
+  end
 end

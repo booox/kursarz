@@ -72,3 +72,11 @@ Dodatkowo uruchamianie poszczególnych zadań wymaga zainstalowania środowisk w
 Javascript i Coffeescript - Node.js, npm, jasmine-node
 Ruby - Ruby i RSpec (min 2.0)
 Python - Python i unittest
+
+### Admin
+
+    rails c
+
+    user = User.find_by(name: "nazwa_uzywtkownika")
+
+    user.update_attribute(admin: true)

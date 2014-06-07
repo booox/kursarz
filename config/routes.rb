@@ -21,7 +21,13 @@ Rails.application.routes.draw do
       resources :quiz_submissions, only: [:create]
     end
     resources :course_signups, only: [:create, :destroy]
+
+    resources :users, only: [:index, :show]
 	end
+
+  namespace :admin do
+    resources :users, only: [:index, :edit, :update]
+  end
 
   get 'logout', to: 'sessions#destroy'
   get 'auth/github/callback', to: 'sessions#github'
