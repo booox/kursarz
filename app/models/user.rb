@@ -46,6 +46,6 @@ class User < ActiveRecord::Base
   end
 
   def can_create_courses?
-    true
+    courses_limit - courses.count > 0
   end
 end
