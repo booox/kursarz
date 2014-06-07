@@ -21,8 +21,14 @@ class User < ActiveRecord::Base
   end
 
   def is_teacher_in?(course)
-    return if course.nil? || course.new_record?
-    teached_courses.exists?(course: course.id)
+    return if course.nil?
+    teached_courses.exists?(id: course.id)
+  end
+
+  def teach_in(course)
+    return false if is_teacher_in?(course)
+
+    CourseRole.create_teacher_role(user: self, course: course).errors.empty?
   end
 
   def sign_up_for(course)

@@ -21,8 +21,7 @@ Rails.application.routes.draw do
       resources :quiz_submissions, only: [:create]
     end
     resources :course_signups, only: [:create, :destroy]
-
-    resources :users, only: [:index, :show]
+    resources :course_teachers, only: [:create, :destroy]
 	end
 
   namespace :admin do

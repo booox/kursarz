@@ -27,6 +27,11 @@ class CoursesController < ApplicationController
 
   def edit
     @course = Course.find_by!(url: params[:id])
+
+    @course_teacher = CourseRole.new
+
+    @students = @course.students
+    @teachers = @course.teachers
   end
 
   def update
