@@ -1,3 +1,26 @@
+<h2>Owned courses</h2>
+
+<% if @owned_courses.empty? %>
+  <p>You have no courses that you own.</p>
+<% end %>
 <div class="row">
-  <%= render 'shared/courses_list', courses: @courses %> 
+  <%= render 'shared/courses_list', courses: @owned_courses %>
 </div>
+
+<h2>Teached courses</h2>
+<% if @teached_courses.empty? %>
+  <p>You have no courses that you teach.</p>
+<% end %>
+<div class="row">
+  <%= render 'shared/courses_list', courses: @teached_courses %>
+</div>
+
+<h2>Courses</h2>
+<% if @teached_courses.empty? %>
+  <p>You haven't signed up on any course yet.</p>
+<% end %>
+<div class="row">
+  <%= render 'shared/courses_list', courses: @courses %>
+</div>
+
+
