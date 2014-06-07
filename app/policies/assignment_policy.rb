@@ -1,6 +1,6 @@
 class AssignmentPolicy < Struct.new(:user, :assignment)
   def create?
-    user.admin? || user.is_teacher_in?(assignment.course)
+    user.admin?
   end
 
   def update?
