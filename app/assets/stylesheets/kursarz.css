@@ -108,3 +108,7 @@ textarea {
 #course_description {
   display: none;
 }
+
+a#show_description {
+	font-size: 15px;
+}

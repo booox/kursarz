@@ -1,19 +1,10 @@
 <script type='text/javascript'>
-  window.isSignedUpForCourse = <%= policy(@course).show? %>
+  var isSignedUpForCourse = <%= policy(@course).show? %>
 </script>
 
 <%= javascript_include_tag "course" %>
 
-<!-- wip -->
-<% if current_user.is_signed_up_for?(@course) %>
-  <a href="<%= course_course_signup_path(@course, id: @course.id) %>" role="button" data-method="delete" class="btn btn-danger">Leave</a>
-<% else %>
-  <%= form_for [@course, @course_role], url: course_course_signups_path(@course), role: 'form', role: 'form' do |f| %>
-    <%= f.submit "Sign up", class: "btn btn-primary" %>
-  <% end %>
-<% end %>
-<!-- /wip -->
-
+<% if current_user.admin? %>
 <div class="admin-panel">
   <div class="btn-group">
     <% if policy(@lesson).create? %>
@@ -36,15 +27,22 @@
     <% end %>
   </div>
 </div>
+<% end %>
+
+<!-- wip -->
+<% if current_user.is_signed_up_for?(@course) %>
+  <a href="<%= course_course_signup_path(@course, id: @course.id) %>" role="button" data-method="delete" class="btn btn-danger">Leave</a>
+<% else %>
+  <%= form_for [@course, @course_role], url: course_course_signups_path(@course), role: 'form', role: 'form' do |f| %>
+    <%= f.submit "Sign up", class: "btn btn-primary" %>
+  <% end %>
+<% end %>
+<!-- /wip -->
 
 <%= link_to '&times;'.html_safe, courses_path, role: "button", class: "close", "aria-hidden" => "true" %>
-<h1><%= @course.name %></h1>
+<h1><%= @course.name %> <% if policy(@course).show? %><a id="show_description" href="#">View details</a><% end %></h1>
 
 <% if current_user.logged_in? %>
-
-  <% if policy(@course).show? %>
-    <button id="show_description" class="btn btn-primary">View details</button>
-  <% end %>
 
   <span id="course_description">
     <%= render_markdown(@course.description) %>

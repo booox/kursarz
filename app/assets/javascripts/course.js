@@ -1,10 +1,13 @@
 $(document).ready(function() {
 
-  if(window.isSignedUpForCourse) {
-    $('#show_description').click(function() {
-      $('#course_description').animate({height:"toggle"});
-    });
-  } else {
-    $('#course_description').show()
-  }
+	if(isSignedUpForCourse) {
+		$('#show_description').click(function(e) {
+			e.preventDefault();
+			$('#course_description').animate({height:"toggle"});
+			console.log( $('#course_description').css('display') );
+		});
+	} else {
+		$('#course_description').show();
+	}
+
 });
