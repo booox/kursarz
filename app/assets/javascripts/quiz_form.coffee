@@ -39,7 +39,7 @@ class QuizForm
   addAnswer: (event) ->
     event.preventDefault
 
-    $(@).siblings().filter(':last').append($(singleAnswer))
+    $(@).before($(singleAnswer))
 
 $ ->
   new QuizForm()
