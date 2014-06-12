@@ -8,6 +8,7 @@ class QuizForm
         <div>
           <input type="text" class="form-control" name="quiz[questions_attributes][][answers_attributes][][content]" placeholder="Answer" />
         </div>
+
         <a class="add-answer pull-right"><span class="glyphicon glyphicon-plus"></span> answer</a>
     </div>
   """
@@ -33,10 +34,12 @@ class QuizForm
     question = $ singleQuestion
     @questions.append(question)
 
+    $(".singleQuestion:last > .add-answer").on('click', @addAnswer)
+
   addAnswer: (event) ->
     event.preventDefault
 
-    $(@).prepend($(singleAnswer))
+    $(@).siblings().filter(':last').append($(singleAnswer))
 
 $ ->
   new QuizForm()
