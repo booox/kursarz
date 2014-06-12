@@ -27,6 +27,7 @@ class AssignmentsController < ApplicationController
     last_submission = @assignment.assignment_submissions.by_user(current_user).last
 
     @code = last_submission.try(:code)
+    @sample_solution = @assignment.sample_solution
   end
 
   private
@@ -36,6 +37,6 @@ class AssignmentsController < ApplicationController
   end
 
   def assignment_params
-    params.require(:assignment).permit(:name, :short_description, :description, :screenshot_url, :code, :tests_file, :language)
+    params.require(:assignment).permit(:name, :short_description, :description, :screenshot_url, :sample_solution, :code, :tests_file, :language)
   end
 end
