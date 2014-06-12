@@ -21,9 +21,15 @@
     <%= f.label :language %>
     <%= f.select :language, options_for_select(Assignment::LANGUAGES), class: "form-control" %>
   </div>
+
   <div class="form_group" >
     <%= f.label :code %>
-    <%= f.text_area :code, class: "form-control", rows: 20, id: "code" %>
+    <%= f.text_area :code, class: "form-control", rows: 20, id: 'code' %>
+  </div>
+
+  <div class="form_group" >
+    <%= f.label :sample_solution %>
+    <%= f.text_area :sample_solution, class: "form-control code", rows: 20, id: 'sample_solution' %>
   </div>
   <div class="form_group">
     <%= f.submit class: "btn btn-primary" %>

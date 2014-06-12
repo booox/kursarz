@@ -33,13 +33,20 @@ class Assignment
 
   constructor: ->
     code_input = document.getElementById 'code'
+    sample_solution = document.getElementById 'sample_solution'
     @language_selector = $ '#assignment_language'
 
     @editor = CodeMirror.fromTextArea code_input,
       theme: 'twilight',
       lineNumbers: true,
       styleActiveLine: true,
-      matchBrackets: true,
+      matchBrackets: true
+
+    @sample_solution = CodeMirror.fromTextArea sample_solution,
+      theme: 'twilight',
+      lineNumbers: true,
+      styleActiveLine: true,
+      matchBrackets: true
 
     @language_selector.on "change", @change_language
 
@@ -50,6 +57,8 @@ class Assignment
 
     @editor.setOption "value", TEMPLATES[language]
     @editor.setOption "mode", language
+
+    @sample_solution.setOption "mode", language
 
 $ ->
   new Assignment()
