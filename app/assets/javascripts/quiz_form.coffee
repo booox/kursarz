@@ -5,7 +5,7 @@ class QuizForm
         <div class="form-group">
           <input type="text" class="form-control" name="quiz[questions_attributes][][content]" placeholder="Question" />
         </div>
-        <div>
+        <div class="form-group">
           <input type="text" class="form-control" name="quiz[questions_attributes][][answers_attributes][][content]" placeholder="Answer" />
         </div>
 
