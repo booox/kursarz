@@ -8,8 +8,7 @@ class QuizForm
         <div>
           <input type="text" class="form-control" name="quiz[questions_attributes][][answers_attributes][][content]" placeholder="Answer" />
         </div>
-
-        <button id="#add-answer" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> answer</button>
+        <a class="add-answer pull-right"><span class="glyphicon glyphicon-plus"></span> answer</a>
     </div>
   """
 
