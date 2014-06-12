@@ -64,6 +64,11 @@ ul.nav > li > a.avatar {
 }
 
 /* Thumbnails */
+.thumbnail > .imageholder {
+	width: 100%;
+	overflow: hidden;
+}
+
 .thumbnail > img {
 	width: 100%;
 }
@@ -74,6 +79,15 @@ a.thumbnail:hover {
 
 a.thumbnail > .caption > h3 {
 	margin-top: 10px;
+}
+
+a.thumbnail > .caption {
+	height: 166px;
+}
+
+a.thumbnail > .caption > h3 {
+	max-height: 78px;
+	overflow: hidden;
 }
 
 a.thumbnail > .caption > p {

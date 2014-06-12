@@ -1,7 +1,9 @@
 <% courses.each do |course| %>
   <div class="col-sm-6 col-md-4 col-lg-3">
     <a href="<%= course_path(course.url) %>" class="thumbnail">
-      <img src="<%= raw course.screenshot_url %>" alt="<%= course.name %>">
+      <div class="imageholder">
+      	<img src="<%= raw course.screenshot_url %>" alt="<%= course.name %>">
+      </div>
       <div class="caption">
         <h3><%= course.name %></h3>
         <p><%= course.short_description %></p>

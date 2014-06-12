@@ -10,6 +10,17 @@ var ytresize = function() {
 	});
 }
 
+var courselist = function() {
+	// Image height
+
+	$('.imageholder').each(function() {
+		var width = $(this).width();
+		var height = Math.floor(width / 1.3);
+		$(this).height( height );
+	});
+
+}
+
 var ready = function() {
 	// Dropdown menu on hover
 	$('.dropdown').mouseenter(function() {
@@ -23,6 +34,9 @@ var ready = function() {
 
 	// YT resize
 	ytresize();
+
+	// Imageholder course list
+	courselist();
 };
 
 $(document).ready(ready);
@@ -31,4 +45,5 @@ $(document).on('page:load', ready);
 // window.resize
 $(window).resize(function() {
 	ytresize();
+	courselist();
 });
