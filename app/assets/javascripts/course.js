@@ -1,22 +1,22 @@
 $(document).ready(function() {
 
-	var courseDesc = $('div#course_description');
-	var courseDescBtn = $('a#show_description');
+	var courseDesc = 'span#course_description';
+	var courseDescBtn = 'a#show_description';
 
 	if(isSignedUpForCourse) {
-		courseDescBtn.click(function(e) {
+		$(courseDescBtn).click(function(e) {
 			e.preventDefault();
-			courseDesc.animate({height:"toggle"},function(){
-				if( courseDesc.css('display') == 'none' ) {
-					courseDescBtn.html('View details');
+			$(courseDesc).animate({height:"toggle"},function(){
+				if( $(courseDesc).css('display') == 'none' ) {
+					$(courseDescBtn).html('View details');
 				} else {
-					courseDescBtn.html('Hide details');
+					$(courseDescBtn).html('Hide details');
 				}
 			});
 			
 		});
 	} else {
-		courseDesc.show();
+		$(courseDesc).show();
 	}
 
 });

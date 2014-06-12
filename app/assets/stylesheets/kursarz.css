@@ -105,7 +105,7 @@ textarea {
 
 .media .media-body p {margin-bottom: 0;}
 
-div#course_description {
+span#course_description {
   display: none;
 }
 
