@@ -20,7 +20,7 @@ class CoursesController < ApplicationController
   end
 
   def create
-    @course = @user.courses.build(course_params)
+    @course = current_user.courses.build(course_params)
 
     if @course.save
       redirect_to courses_path, notice: "You've successfully added a course."
