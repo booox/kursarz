@@ -6,6 +6,10 @@ body {
 	padding-top: 70px;
 }
 
+#main-page {
+	padding-bottom: 15px;
+}
+
 /* nav */ .navbar-brand > img {
 	height: 15px;
 	margin-top: -5px;
