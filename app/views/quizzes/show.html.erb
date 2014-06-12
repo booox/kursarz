@@ -21,20 +21,24 @@
 
   <% end %>
 
-  <%= submit_tag("Submit", :class => "submit") %>
+  <%= submit_tag("Submit", :class => "submit btn btn-primary") %>
 
 <% end %>
 
 <h2>Submissions</h2>
-<% @quiz_submissions.each do |quiz_submission| %>
+<% if @quiz_submissions.any? %>
+  <% @quiz_submissions.each do |quiz_submission| %>
 
-  <table class='table'>
-    <tr>
-      <td><%= quiz_submission.updated_at %></td>
-    </tr>
-    <tr>
-       <td>Score: <%= quiz_submission.score %> / <%= @quiz.score %></td>
-    </tr>
-  </table>
+    <table class='table'>
+      <tr>
+        <td><%= quiz_submission.updated_at %></td>
+      </tr>
+      <tr>
+         <td>Score: <%= quiz_submission.score %> / <%= @quiz.score %></td>
+      </tr>
+    </table>
 
+  <% end %>
+<% else %>
+  <p>You don't have any submissions for this quiz.</p>
 <% end %>

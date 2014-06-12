@@ -54,49 +54,65 @@
 <% if policy(@course).show? %>
 
 <h2>Lessons</h2>
-
-<div class="course-list">
-<% @lessons.each do |lesson| %>
-  <div class="media">
-    <a class="pull-left" href="<%= course_lesson_path(@course, lesson) %>">
-      <img class="media-object" src="<%= lesson.screenshot_url %>" alt="<%= lesson.name %>">
-    </a>
-    <div class="media-body">
-      <h4 class="media-heading"><%= link_to lesson.name, course_lesson_path(@course, lesson) %></h4>
-      <%= render_markdown(lesson.description) %>
-      <button type="button" class="btn btn-link pull-right">
-      <%= link_to content_tag(:span, ''), course_lesson_path(@course, lesson), class: "glyphicon glyphicon-trash", method: :delete %>
+<% if @lessons.any? %>
+  <div class="course-list">
+  <% @lessons.each do |lesson| %>
+    <div class="media">
+      <a class="pull-left" href="<%= course_lesson_path(@course, lesson) %>">
+        <img class="media-object" src="<%= lesson.screenshot_url %>" alt="<%= lesson.name %>">
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading"><%= link_to lesson.name, course_lesson_path(@course, lesson) %></h4>
+        <%= render_markdown(lesson.description) %>
+        <button type="button" class="btn btn-link pull-right">
+        <%= link_to content_tag(:span, ''), course_lesson_path(@course, lesson), class: "glyphicon glyphicon-trash", method: :delete %>
+      </div>
     </div>
-  </div>
+  <% end %>
+<% else %>
+  <p>There are no lessons yet.</p>
 <% end %>
+
+
 
 <h2>Assignments</h2>
-
-<% @assignments.each do |assignment| %>
-  <div class="media">
-    <a class="pull-left" href="<%= course_lesson_path(@course, assignment) %>">
-      <img class="media-object" src="<%= assignment.screenshot_url %>" alt="<%= assignment.name %>">
-    </a>
-    <div class="media-body">
-      <h4 class="media-heading"><%= link_to assignment.name, course_assignment_path(@course, assignment) %></h4>
-      <%= render_markdown(assignment.description) %>
+<% if @assignments.any? %>
+  <% @assignments.each do |assignment| %>
+    <div class="media">
+      <a class="pull-left" href="<%= course_lesson_path(@course, assignment) %>">
+        <img class="media-object" src="<%= assignment.screenshot_url %>" alt="<%= assignment.name %>">
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading"><%= link_to assignment.name, course_assignment_path(@course, assignment) %></h4>
+        <%= render_markdown(assignment.description) %>
+      </div>
     </div>
-  </div>
+  <% end %>
+<% else %>
+  <p>There are no assignments yet.</p>
 <% end %>
+
+
 
 <h2>Quizzes</h2>
-
-<% @quizzes.each do |quiz| %>
-  <div class="media">
-    <a class="pull-left" href="<%= course_quiz_path(@course, quiz) %>">
-      <img class="media-object" src="<%= quiz.screenshot_url %>" alt="<%= quiz.name %>">
-    </a>
-    <div class="media-body">
-      <h4 class="media-heading"><%= link_to quiz.name, course_quiz_path(@course, quiz) %></h4>
-      <%= render_markdown(quiz.description) %>
+<% if @quizzes.any? %>
+  <% @quizzes.each do |quiz| %>
+    <div class="media">
+      <a class="pull-left" href="<%= course_quiz_path(@course, quiz) %>">
+        <img class="media-object" src="<%= quiz.screenshot_url %>" alt="<%= quiz.name %>">
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading"><%= link_to quiz.name, course_quiz_path(@course, quiz) %></h4>
+        <%= render_markdown(quiz.description) %>
+      </div>
     </div>
-  </div>
+  <% end %>
+<% else %>
+  <p>There are no quizzes yet.</p>
 <% end %>
+
+
+
 
 </div>
 
