@@ -11,10 +11,6 @@ body {
 	border-top: 1px solid #e7e7e7;
 }
 
-#main-page {
-	padding-top: 50px;
-}
-
 .navbar-brand {
 	float: none;
 	padding: 15px 15px;
@@ -30,4 +26,33 @@ body {
 
 .jumbotron > p {
 	margin: 35px auto;
+}
+
+#kursarz-logo {
+	margin-top: -20px;
+	margin-bottom: 20px;	
+}
+
+#toCourses {
+	display: block;
+	margin-top: 60px;
+	margin-bottom: -30px;
+	font-size: 16px;
+	color: #f8f8f8;
+	padding-bottom: 45px;
+	background: url('/assets/down.png') center bottom no-repeat;
+}
+
+#toCourses:hover {
+	text-decoration: none;
+}
+
+#main-page {
+	padding-top: 50px;
+	padding-bottom: 75px;
+}
+
+#courses {
+	margin: 0;
+	margin-bottom: 50px;
 }
