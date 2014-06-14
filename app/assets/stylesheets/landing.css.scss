@@ -1,6 +1,33 @@
 body {
-  background-image: url(/assets/background.jpg);
+  background-image: url(/assets/bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  padding-top: 0;
+}
+
+.container-fluid {
+	background: white;
+	border-top: 1px solid #e7e7e7;
+}
+
+#main-page {
+	padding-top: 50px;
+}
+
+.navbar-brand {
+	float: none;
+	padding: 15px 15px;
+	font-size: 18px;
+	line-height: 20px;
+	height: 50px;
+}
+
+.navbar-brand > img {
+	height: 15px;
+	margin-top: -5px;
+}
+
+.jumbotron > p {
+	margin: 35px auto;
 }

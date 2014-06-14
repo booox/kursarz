@@ -93,7 +93,10 @@ ul.nav > li > a.avatar {
 	border-radius: 12px;
 	-webkit-border-radius: 12px;
 	text-align: center;
+	color: #f8f8f8;
+	background: none;
 }
+
 /* Admin panel - "create new coure" etc.*/
 .admin-panel {
 	margin: 10px auto 30px;

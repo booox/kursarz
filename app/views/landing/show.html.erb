@@ -1,15 +1,25 @@
-<div class="jumbotron">
-  <h1>Start learning now!</h1>
-  <p>We are happy to welcome you in Kursarz, where you can learn anything you want :)</p>
-  <% if current_user.logged_in? %>
-    <p><a class="btn btn-primary btn-lg" href="<%= courses_path %>" role="button">Learn now!</a></p>
-  <% else %>
-    <div class="btn-group">
-      <a class="btn btn-primary btn-lg" href="/auth/github" role="button">Sign in with Github</a>
-      <a class="btn btn-primary btn-lg" href="/auth/bitbucket" role="button">Sign in with Bitbucket</a>
+<div class="home-table">
+  <div class="home-table-cell">
+    <div class="jumbotron">
+      <img src="/assets/logo_landing.png" id="kursarz-logo" alt="Kursarz" />
+      <h1>Start learning now!</h1>
+      <p>We are happy to welcome you in Kursarz, where you can learn anything you want :)</p>
+      <div class="btn-group">
+        <a class="btn btn-default btn-lg" href="/auth/github" role="button">Sign in with Github</a>
+        <a class="btn btn-default btn-lg" href="/auth/bitbucket" role="button">Sign in with Bitbucket</a>
+      </div>
     </div>
-  <% end %>
-
+  </div>
 </div>
 
-<%= render 'shared/courses_list', courses: @courses %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2">&nbsp;</div>
+    <div class="col-sm-8" id="main-page">
+
+      <%= render 'shared/courses_list', courses: @courses %>
+
+    </div>
+    <div class="col-sm-2">&nbsp;</div>
+  </div>
+</div>
