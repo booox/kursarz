@@ -12,8 +12,7 @@ $(document).ready(function() {
 				} else {
 					$(courseDescBtn).html('Hide details');
 				}
-			});
-			
+			});		
 		});
 	} else {
 		$(courseDesc).show();
