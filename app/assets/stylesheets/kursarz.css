@@ -9,6 +9,12 @@ body {
 #main-page {
 	padding-bottom: 15px;
 }
+/* warnings and success box */
+.alert-success {
+	background-color: #dff0d8;
+	border-color: #3c763d;
+	color: #3c763d;
+}
 
 /* nav */ .navbar-brand > img {
 	height: 15px;
