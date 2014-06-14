@@ -11,7 +11,7 @@ class LessonsController < ApplicationController
     if @lesson.save
       redirect_to course_path(@course), notice: "You have successfully added a lesson."
     else
-      redirect_to course_path(@course), error: "There was an error processing your request. Please try again later."
+      render :new, error: "There was an error processing your request. Please try again later."
     end
   end
 
