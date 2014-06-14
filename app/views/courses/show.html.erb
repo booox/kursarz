@@ -120,7 +120,7 @@
 
   <!-- Leave -->
   <% if current_user.is_signed_up_for?(@course) %>
-    <a href="<%= course_course_signup_path(@course, id: @course.id) %>" role="button" data-method="delete" class="btn btn-danger pull-right">Leave</a>
+    <a href="<%= course_course_signup_path(@course, id: @course.id) %>" role="button" data-method="delete" class="btn btn-danger pull-right leave-btn">Leave</a>
   <% end %>
   <!-- /Leave -->
 

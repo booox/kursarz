@@ -6,6 +6,11 @@ body {
 	padding-top: 70px;
 }
 
+/* Mozilla dotted border fix */
+a:focus { 
+    outline: none; 
+}
+
 #main-page {
 	padding-bottom: 15px;
 }
@@ -172,6 +177,10 @@ span#course_description {
 
 a#show_description {
 	font-size: 15px;
+}
+
+.leave-btn {
+	margin-top: 30px;
 }
 
 /* Courses edit */
