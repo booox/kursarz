@@ -31,5 +31,9 @@ module Kursarz
 
     config.autoload_paths += Dir[Rails.root.join('app', 'services')]
     config.autoload_paths += Dir[Rails.root.join('app', 'models', '{**}')]
+
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance|
+      html_tag
+    }
   end
 end
