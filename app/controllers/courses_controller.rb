@@ -25,7 +25,7 @@ class CoursesController < ApplicationController
     if @course.save
       redirect_to courses_path, notice: "You've successfully added a course."
     else
-      redirect_to courses_path, error: "There was an error processing your request. Please try again later."
+      render :new, error: "There was an error processing your request. Please try again later."
     end
   end
 

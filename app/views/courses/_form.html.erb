@@ -1,16 +1,20 @@
-<div class="form_group" >
+<% @course.errors.full_messages.each do |message| %>
+  <p><%= message %></p>
+<% end %>
+
+<div class="form-group <%= "has-error" if @course.errors[:name].any? %>" >
   <%= f.label :name %>
   <%= f.text_field :name, class: "form-control"  %>
 </div>
-<div class="form_group" >
+<div class="form-group <%= "has-error" if @course.errors[:short_description].any? %>" >
   <%= f.label :short_description %>
   <%= f.text_field :short_description, class: "form-control" %>
 </div>
-<div class="form_group" >
+<div class="form-group <%= "has-error" if @course.errors[:screenshot_url].any? %>" >
   <%= f.label :screenshot_url %>
   <%= f.text_field :screenshot_url, class: "form-control" %>
 </div>
-<div class="form_group" >
+<div class="form-group <%= "has-error" if @course.errors[:description].any? %>" >
   <%= f.label :description %>
   <%= f.text_area :description, class: "form-control", rows: 7 %>
 </div>
