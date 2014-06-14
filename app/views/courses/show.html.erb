@@ -100,6 +100,10 @@
         <div class="media-body">
           <h4 class="media-heading"><%= link_to quiz.name, course_quiz_path(@course, quiz) %></h4>
           <%= render_markdown(quiz.description) %>
+          <button type="button" class="btn btn-link pull-right">
+          <% if policy(quiz).destroy? %>
+            <%= link_to content_tag(:span, ''), course_quiz_path(@course, quiz), data: { confirm:"Are you sure? THIS IS IRREVERSIBLE" }, class: "glyphicon glyphicon-trash", method: :delete %>
+          <% end %>
         </div>
       </div>
     <% end %>

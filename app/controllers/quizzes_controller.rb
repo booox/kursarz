@@ -25,6 +25,11 @@ class QuizzesController < ApplicationController
     @quiz_submissions = @quiz.quiz_submissions.by_user(current_user)
   end
 
+  def destroy
+    @course.quizzes.find(params[:id]).destroy
+    redirect_to course_path(@course), notice: 'Quiz successfully destroyed'
+  end
+
   private
 
   def normalize_nested_params(params)
