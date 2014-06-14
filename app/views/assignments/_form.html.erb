@@ -1,0 +1,26 @@
+<div class="form_group <%= "has-error" if @assignment.errors[:name].any? %>" >
+  <%= f.label :name, class: 'control-label' %>
+  <%= f.text_field :name, class: "form-control" %>
+</div>
+<div class="form_group <%= "has-error" if @assignment.errors[:short_description].any? %>" >
+  <%= f.label :short_description, class: 'control-label' %>
+  <%= f.text_field :short_description, class: "form-control" %>
+</div>
+<div class="form_group <%= "has-error" if @assignment.errors[:description].any? %>" >
+  <%= f.label :description, class: 'control-label' %>
+  <%= f.text_area :description, class: "form-control" %>
+</div>
+<div class="form_group">
+  <%= f.label :language %>
+  <%= f.select :language, options_for_select(Assignment::LANGUAGES), class: "form-control" %>
+</div>
+
+<div class="form_group <%= "has-error" if @assignment.errors[:code].any? %>" >
+  <%= f.label :code, class: 'control-label'%>
+  <%= f.text_area :code, class: "form-control", rows: 20, id: 'code' %>
+</div>
+
+<div class="form_group" >
+  <%= f.label :sample_solution %>
+  <%= f.text_area :sample_solution, class: "form-control code", rows: 20, id: 'sample_solution' %>
+</div>

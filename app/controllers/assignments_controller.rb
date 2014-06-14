@@ -30,6 +30,20 @@ class AssignmentsController < ApplicationController
     @sample_solution = @assignment.sample_solution
   end
 
+  def edit
+    @assignment = @course.assignments.find(params[:id])
+  end
+
+  def update
+    @assignment = @course.assignments.find(params[:id])
+
+    if @assignment.update_attributes(assignment_params)
+      redirect_to course_assignment_path(@course, @assignment), notice: "Assignment updated successfully"
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @course.assignments.find(params[:id]).destroy
     redirect_to course_path(@course), notice: 'Assignment successfully destroyed'

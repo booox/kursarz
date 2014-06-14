@@ -84,6 +84,9 @@
           <h4 class="media-heading"><%= link_to assignment.name, course_assignment_path(@course, assignment) %></h4>
           <%= render_markdown(assignment.description) %>
           <button type="button" class="btn btn-link pull-right">
+          <% if policy(assignment).update? %>
+            <%= link_to content_tag(:span, ''), edit_course_assignment_path(@course, assignment), class: "glyphicon glyphicon-pencil" %>
+          <% end %>
           <% if policy(assignment).destroy? %>
             <%= link_to content_tag(:span, ''), course_assignment_path(@course, assignment), data: { confirm:"Are you sure? THIS IS IRREVERSIBLE" }, class: "glyphicon glyphicon-trash", method: :delete %>
           <% end %>

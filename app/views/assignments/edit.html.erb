@@ -10,11 +10,10 @@
 
 <%= link_to '&times;'.html_safe, :back, role: "button", class: "close", "aria-hidden" => "true" %>
 
-<h1>Create new assignment for course <%= @course.name %></h1>
+<h1>Edit <%= @assignment.name %> in course <%= @course.name %></h1>
 
-<%= form_for [@course, @assignment] do |f| %>
+<%= form_for [@course, @assignment], url: { action: :update } do |f| %>
   <%= render 'assignments/form', f: f %>
-
   <div class="form_group">
     <%= f.submit class: "btn btn-primary" %>
   </div>
