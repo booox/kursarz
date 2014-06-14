@@ -6,7 +6,10 @@ class QuizForm
           <input type="text" class="form-control" name="quiz[questions_attributes][][content]" placeholder="Question" />
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" name="quiz[questions_attributes][][answers_attributes][][content]" placeholder="Answer" />
+          <div class="checkbox">
+            <input type="checkbox" name="quiz[questions_attributes][][answers_attributes][][correct]" value="">
+            <input type="text" class="form-control" name="quiz[questions_attributes][][answers_attributes][][content]" placeholder="Answer" />
+          </div>
         </div>
 
         <a class="add-answer pull-right"><span class="glyphicon glyphicon-plus"></span> answer</a>
@@ -15,7 +18,10 @@ class QuizForm
 
   singleAnswer = """
     <div class="form-group">
-      <input type="text" class="form-control" name="quiz[questions_attributes][][answers_attributes][][content]" placeholder="Answer" />
+      <div class="checkbox">
+        <input type="checkbox" name="quiz[questions_attributes][][answers_attributes][][correct]" value="">
+        <input type="text" class="form-control" name="quiz[questions_attributes][][answers_attributes][][content]" placeholder="Answer" />
+      </div>
     </div>
   """
 
