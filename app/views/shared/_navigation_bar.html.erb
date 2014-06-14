@@ -30,10 +30,12 @@
               <%= image_tag(current_user.avatar_url) %>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="<%= user_courses_path %>">Courses</a></li>
+              <li><a href="<%= user_courses_path %>">My courses</a></li>
               <li><a href="<%= edit_user_path %>">Profile</a></li>
+              <li class="divider"></li>
               <% if current_user.admin? %>
                 <li><a href="<%= admin_root_path %>">Admin panel</a></li>
+                <li class="divider"></li>
               <% end %>
               <li><%= link_to "Logout", logout_path %></li>
             </ul>

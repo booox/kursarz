@@ -1,11 +1,21 @@
+<%= link_to '&times;'.html_safe, :back, role: "button", class: "close", "aria-hidden" => "true" %>
+
 <%= form_for [:admin, @user], action: :edit do |f| %>
 
-  <%= f.label :admin %>
-  <%= f.check_box(:admin) %>
+	<h1>Nazwa_użytkownika</h1>
 
-  <%= f.label :courses_limit %>
-  <%= f.text_field :courses_limit %>
+	<div class="form_group" >
+		<%= f.label :admin %>
+		<%= f.check_box(:admin) %>
+	</div>
 
-  <%= f.submit %>
+	<div class="form_group" >
+		<%= f.label :courses_limit %>
+		<%= f.text_field :courses_limit %>
+	</div>
+
+	<div class="form_group" >
+		<input class="btn btn-primary" type="submit" value="Update user">
+	</div>
 
 <% end %>

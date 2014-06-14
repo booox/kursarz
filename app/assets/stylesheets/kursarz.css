@@ -136,11 +136,11 @@ table.table > tbody > tr > th {
 	border-top: none;
 }
 
-table.table > tbody > tr > td {
+table.table:not(#admin-table) > tbody > tr > td {
 	text-align: right;
 }
 
-table.table > tbody > tr > td:first-child {
+table.table:not(#admin-table) > tbody > tr > td:first-child {
 	text-align: left;
 }
 
