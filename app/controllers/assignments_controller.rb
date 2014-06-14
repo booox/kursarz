@@ -30,6 +30,11 @@ class AssignmentsController < ApplicationController
     @sample_solution = @assignment.sample_solution
   end
 
+  def destroy
+    @course.assignments.find(params[:id]).destroy
+    redirect_to course_path(@course), notice: 'Assignment successfully destroyed'
+  end
+
   private
 
   def set_course
