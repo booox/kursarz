@@ -10,7 +10,6 @@
     </div>
   <% end %>
 
-  <% @courses.each do |course| %>
-    <h1><%= course.name %></h1>
-  <% end %>
 </div>
+
+<%= render 'shared/courses_list', courses: @courses %>
