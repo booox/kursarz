@@ -8,12 +8,10 @@
       </div>
       <div class="panel-body">
         <% question.answers.each do |answer| %>
-          <% if question.multiple_correct_answers? %>
             <div class="checkbox">
               <%= label_tag answer.id, answer.content %>
               <%= check_box_tag answer.id %>
             </div><!-- /input-group -->
-          <% end %>
         <% end %>
 
       </div>

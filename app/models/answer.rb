@@ -1,7 +1,4 @@
 class Answer < ActiveRecord::Base
   belongs_to :question
-
-  # def correct
-  #   true
-  # end
+  belongs_to :quiz
 end

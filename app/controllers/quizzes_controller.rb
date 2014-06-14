@@ -1,12 +1,12 @@
 class QuizzesController < ApplicationController
   before_action :set_course
+  before_action -> { normalize_nested_params(params) }, only: :create
 
   def new
     @quiz = @course.quizzes.build(user: current_user)
   end
 
   def create
-    raise("dupa")
     @quiz = @course.quizzes.build(quiz_params.merge(user: current_user))
 
     if @quiz.save
@@ -26,6 +26,14 @@ class QuizzesController < ApplicationController
   end
 
   private
+
+  def normalize_nested_params(params)
+    params["quiz"]["questions_attributes"].each do |question_attributes|
+      question_attributes["answers_attributes"].each do |answer_attributes|
+        answer_attributes["correct"] = answer_attributes.has_key?("correct")
+      end
+    end
+  end
 
   def set_course
     @course = Course.find_by!(url: params[:course_id])
