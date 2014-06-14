@@ -131,8 +131,25 @@ a#show_description {
 	font-size: 15px;
 }
 
+/* Courses edit */
+table.table > tbody > tr > th {
+	border-top: none;
+}
+
+table.table > tbody > tr > td {
+	text-align: right;
+}
+
+table.table > tbody > tr > td:first-child {
+	text-align: left;
+}
+
+
+
 /* Quiz */
 .submitCont {
 	margin-top: 15px;
 	text-align: center;
 }
+
+

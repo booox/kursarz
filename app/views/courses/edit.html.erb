@@ -8,10 +8,11 @@
   </div>
 <% end %>
 
-<h2>Teachers <%= @teachers.count %></h2>
+<h2>Teachers <small>(<%= @teachers.count %>)</small></h2>
 <table class='table'>
   <tr>
     <th>Name</th>
+    <th>&nbsp;</th>
   </tr>
   <% @teachers.each do |user| %>
 
@@ -19,7 +20,6 @@
       <td>
         <%= user.name %>
       </td>
-
       <td>
         <%= link_to "Remove", course_course_teacher_path(@course, id: @course.id), method: :delete %>
       </td>
@@ -28,11 +28,12 @@
   <% end %>
 </table>
 
-<h2>Students <%= @students.count %></h2>
+<h2>Students <small>(<%= @students.count %>)</small></h2>
 <table class='table'>
   <tr>
     <th>Name</th>
-    <th></th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
   </tr>
   <% @students.each do |user| %>
 
@@ -40,11 +41,9 @@
       <td>
         <%= user.name %>
       </td>
-
       <td>
-        <%= button_to "Promote to teacher", course_course_teachers_path(@course) %>
+        <%= link_to "Promote to teacher", course_course_teachers_path(@course) %>
       </td>
-
       <td>
         <%= link_to "Ejection", course_course_signup_path(@course, id: @course.id), method: :delete, confirm: 'Are you sure?'%>
       </td>
