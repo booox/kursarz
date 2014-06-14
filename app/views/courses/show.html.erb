@@ -60,7 +60,12 @@
           <h4 class="media-heading"><%= link_to lesson.name, course_lesson_path(@course, lesson) %></h4>
           <%= render_markdown(lesson.description) %>
           <button type="button" class="btn btn-link pull-right">
-          <%= link_to content_tag(:span, ''), course_lesson_path(@course, lesson), class: "glyphicon glyphicon-trash", method: :delete %>
+          <% if policy(lesson).update? %>
+            <%= link_to content_tag(:span, ''), edit_course_lesson_path(@course, lesson), class: "glyphicon glyphicon-pencil" %>
+          <% end %>
+          <% if policy(lesson).destroy? %>
+            <%= link_to content_tag(:span, ''), course_lesson_path(@course, lesson), data: { confirm:"Are you sure? THIS IS IRREVERSIBLE" }, class: "glyphicon glyphicon-trash", method: :delete %>
+          <% end %>
         </div>
       </div>
     <% end %>
