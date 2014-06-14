@@ -9,11 +9,10 @@
 <%= link_to '&times;'.html_safe, :back, role: "button", class: "close", "aria-hidden" => "true" %>
 <h1>Create new lesson for course <%= @course.name %></h1>
 
-<%= form_for [@course, @lesson], role: 'form', role: 'form' do |f| %>
-  <%= render 'lessons/form' %>
-
+<%= form_for [@course, @lesson], url: { action: :update }, role: 'form', role: 'form' do |f| %>
+  <%= render 'lessons/form', f: f %>
   <div class="form_group">
-    <input class="btn btn-primary" type="submit" value="Create lesson">
+    <input class="btn btn-primary" type="submit" value="Update lesson">
   </div>
 <% end %>
 

@@ -1,6 +1,10 @@
 class LessonsController < ApplicationController
   before_action :set_course
 
+  def index
+    @lessons = @course.lessons
+  end
+
   def new
     @lesson = @course.lessons.build(user: current_user)
   end
@@ -15,8 +19,18 @@ class LessonsController < ApplicationController
     end
   end
 
-  def index
-    @lessons = @course.lessons
+  def edit
+    @lesson = @course.lessons.find(params[:id])
+  end
+
+  def update
+    @lesson = @course.lessons.find(params[:id])
+
+    if @lesson.update_attributes(lesson_params)
+      redirect_to course_lesson_path(@course, @lesson), notice: "Lesson updated successfully"
+    else
+      render :edit
+    end
   end
 
   def show

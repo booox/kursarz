@@ -4,7 +4,6 @@
 
 <%= javascript_include_tag "course" %>
 
-<% if current_user.admin? %>
 <div class="admin-panel">
   <div class="btn-group">
     <% if policy(@lesson).create? %>
@@ -27,7 +26,6 @@
     <% end %>
   </div>
 </div>
-<% end %>
 
 <!-- Sign Up -->
 <% if !current_user.is_signed_up_for?(@course) %>
