@@ -158,7 +158,7 @@ a#add-question {
 	margin-top: -35px;
 }
 
-div.checkbox > input[type="checkbox"] {
+div#questions div.checkbox > input[type="checkbox"] {
 	margin-top: 11px;
 }
 
