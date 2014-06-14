@@ -1,6 +1,15 @@
+var parallaxBg = function() {
+	$('.home-table').css({
+		'background-position': '0 ' + -$('body').scrollTop() * .2 + 'px'
+	});
+}
+
 $(document).ready(function () {
 	// Main page background scale
-	skaluj($(window), $('body'), 3264, 2448);
+	skaluj($(window), $('.home-table'), 3000, 1979);
+
+	// Parallax
+	parallaxBg();
 
 	// Slide to courselist
 	$('#toCourses').click(function(e) {
@@ -12,5 +21,10 @@ $(document).ready(function () {
 });
 
 $(window).resize(function() {
-	skaluj($(window), $('body'), 3264, 2448);
+	skaluj($(window), $('.home-table'), 3000, 1979);
+});
+
+$(window).scroll(function() {
+	// Parallax
+	parallaxBg();
 });

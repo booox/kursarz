@@ -1,9 +1,11 @@
 body {
+  padding-top: 0;
+}
+
+.home-table {
   background-image: url(/assets/bg.jpg);
-  background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  padding-top: 0;
 }
 
 .container-fluid {
