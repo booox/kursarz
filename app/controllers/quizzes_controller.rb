@@ -6,6 +6,7 @@ class QuizzesController < ApplicationController
   end
 
   def create
+    raise("dupa")
     @quiz = @course.quizzes.build(quiz_params.merge(user: current_user))
 
     if @quiz.save
@@ -31,6 +32,6 @@ class QuizzesController < ApplicationController
   end
 
   def quiz_params
-    params.require(:quiz).permit(:name, :short_description, :description)
+    params.require(:quiz).permit(:name, :short_description, :description, questions_attributes: [:content, answers_attributes: [:correct, :content]])
   end
 end
