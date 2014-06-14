@@ -4,12 +4,12 @@
 
     <div class="panel panel-default">
       <div class="panel-heading">
-        <%= question.content %>
+        <%= render_markdown(question.content) %>
       </div>
       <div class="panel-body">
         <% question.answers.each do |answer| %>
             <div class="checkbox">
-              <%= label_tag answer.id, answer.content %>
+              <%= label_tag answer.id, render_markdown(answer.content) %>
               <%= check_box_tag answer.id %>
             </div><!-- /input-group -->
         <% end %>
