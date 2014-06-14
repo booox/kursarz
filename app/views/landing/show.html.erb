@@ -9,4 +9,8 @@
       <a class="btn btn-primary btn-lg" href="/auth/bitbucket" role="button">Sign in with Bitbucket</a>
     </div>
   <% end %>
+
+  <% @courses.each do |course| %>
+    <h1><%= course.name %></h1>
+  <% end %>
 </div>

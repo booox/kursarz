@@ -4,6 +4,7 @@ class LandingController < ApplicationController
   before_action :skip_landing_if_logged
 
   def show
+    @courses = Course.all
   end
 
   private
