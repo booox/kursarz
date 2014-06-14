@@ -29,14 +29,14 @@ var courselist = function() {
 	// Imageholder height
 	$('.imageholder').each(function() {
 		var width = $(this).width();
-		var height = Math.floor(width / 1.3);
+		var height = Math.floor(width / 2);
 		$(this).height( height );
 	});
 
 	// Image scale
 	$('.imageholder').find('img').each(function() {
 		var src = $(this).attr('src');
-		$(this).parent().css('background-image','url('+src+')');
+		$(this).parent().one().css('background-image','url('+src+')');
 		var imgX = $(this).width();
 		var imgY = $(this).height();
 		skaluj($(this).parent(), $(this).parent(), imgX, imgY);
