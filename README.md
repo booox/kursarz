@@ -79,7 +79,7 @@ Python - Python i unittest
 
     user = User.find_by(name: "nazwa_uzywtkownika")
 
-    user.update_attribute(admin: true)
+    user.update_attribute(:admin, true)
 
 ### Wyszukiwanie
 
