@@ -37,6 +37,26 @@ var ready = function() {
 
 	// Imageholder course list
 	courselist();
+
+	// Search slide :)
+	var mouseOnSearch = 0;
+	var searchInput = $('#search-input');
+	$('#search-form').mouseenter(function() {
+		mouseOnSearch = 1;
+		searchInput.animate({width: 146},function() {
+			searchInput.find('input').first().focus();
+		});
+	}).mouseleave(function() {
+		mouseOnSearch = 0;
+		if( !searchInput.find('input').first().is(':focus') ) {
+			searchInput.animate({width: 0});
+		}
+	});
+	searchInput.find('input').first().blur(function() {
+		if( !mouseOnSearch ) {
+			searchInput.animate({width: 0});
+		}
+	});
 };
 
 $(document).ready(ready);

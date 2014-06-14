@@ -35,6 +35,17 @@ ul.nav > li > a.avatar {
 	padding: 9px;
 }
 
+/* search form */
+
+#search-form > #search-input {
+	overflow: hidden;
+	width: 0px;
+}
+
+#search-form > .btn-link {
+	color: #777777;
+}
+
 /* vertical align middle div */
 .home-table {
 	display: table; 

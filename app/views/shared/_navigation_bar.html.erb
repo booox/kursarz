@@ -9,19 +9,20 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="<%= root_path %>"><img src="/assets/logo.png" alt="Kursarz" /> Kursarz</a>
-
-      <% if controller_name != "landing" %>
-        <%= form_tag search_path, class:"navbar-form navbar-left", method: :get, role: "search" do %>
-          <div class="form-group">
-            <%= search_field_tag :q, "Search", class: "form-control" %>
-          </div>
-          <%= submit_tag "Submit", class: 'btn btn-default' %>
-        <% end %>
-      <% end %>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
       <ul class="nav navbar-nav navbar-right">
+
+        <% if controller_name != "landing" %>
+          <%= form_tag search_path, id: "search-form",class:"navbar-form navbar-left", method: :get, role: "search" do %>
+            <div class="form-group" id="search-input">
+              <%= search_field_tag :q, "", class: "form-control input-sm", placeholder: "Search" %>
+            </div>
+            <button type="submit" class="btn btn-link"><span class="glyphicon glyphicon-search"></span></button>
+          <% end %>
+        <% end %>
+
         <% if current_user.logged_in? %>
         <!-- needs refactor; empty links insteaf of reasonable css -->
           <li class="dropdown">
