@@ -144,12 +144,22 @@ table.table > tbody > tr > td:first-child {
 	text-align: left;
 }
 
-
-
 /* Quiz */
 .submitCont {
 	margin-top: 15px;
 	text-align: center;
+}
+
+div#questions {
+	margin-bottom: 50px;
+}
+
+a#add-question {
+	margin-top: -35px;
+}
+
+div.checkbox > input[type="checkbox"] {
+	margin-top: 11px;
 }
 
 

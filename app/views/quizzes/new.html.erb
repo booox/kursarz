@@ -1,38 +1,44 @@
 <%= javascript_include_tag 'quiz_form' %>
 
+<%= link_to '&times;'.html_safe, :back, role: "button", class: "close", "aria-hidden" => "true" %>
+<h1>Create new quiz for course <%= @course.name %></h1>
+
 <%= form_for [@course, @quiz] do |f| %>
-  <fieldset>
-    <legend>Add a new quiz</legend>
+  <div class="form_group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form_group" >
+    <%= f.label :short_description %>
+    <%= f.text_area :short_description, class: "form-control", rows: 4 %>
+  </div>
+  <div class="form_group" >
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control", rows: 7 %>
+  </div>
 
-    <div class="form_group">
-    <input type="text" class="form-control" name="quiz[name]" placeholder="Name"></input>
-    </div>
-    <div class="form_group">
-    <input type="text" class="form-control" name="quiz[short_description]" placeholder="Short description"></input>
-    </div>
-    <div class="form_group">
-    <input type="text" name="quiz[description]" placeholder="Description" class="form-control"></input>
-    </div>
+  <div id="questions">
 
-    <div id="questions">
-      <div class="singleQuestion">
-        <legend>Question</legend>
-        <div class="form-group">
-          <input type="text" class="form-control" name="quiz[questions_attributes][][content]" placeholder="Question" />
-        </div>
-        <div class="form-group">
-          <div class="checkbox">
-            <input type="checkbox" name="quiz[questions_attributes][][answers_attributes][][correct]" value="">
-            <input type="text" class="form-control" name="quiz[questions_attributes][][answers_attributes][][content]" placeholder="Answer" />
-          </div>
-        </div>
-        <a class="add-answer pull-right"><span class="glyphicon glyphicon-plus"></span> answer</a>
+    <div class="singleQuestion">
+      <h3>Question</h3>
+      <div class="form-group">
+        <input type="text" class="form-control" name="quiz[questions_attributes][][content]" />
       </div>
+      <h5>Answers</h5>
+      <div class="form-group">
+        <div class="checkbox">
+          <input type="checkbox" name="quiz[questions_attributes][][answers_attributes][][correct]" value="">
+          <input type="text" class="form-control" name="quiz[questions_attributes][][answers_attributes][][content]" />
+        </div>
+      </div>
+      <a class="add-answer pull-right"><span class="glyphicon glyphicon-plus"></span> answer</a>
     </div>
+    
+  </div>
 
-    <a id="add-question" class="pull-left"><span class="glyphicon glyphicon-plus"></span> question</a>
+  <a id="add-question" class="pull-left"><span class="glyphicon glyphicon-plus"></span> question</a>
 
-  </fieldset>
+
 
   <div class="submitCont">
     <input type="submit" class="btn btn-primary" value="Add quiz" />

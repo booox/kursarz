@@ -2,13 +2,13 @@
 <h1>Create new lesson for course <%= @course.name %></h1>
 
 <%= form_for [@course, @lesson], role: 'form', role: 'form' do |f| %>
- <div class="form_group" >
+  <div class="form_group" >
     <%= f.label :name %>
     <%= f.text_field :name, class: "form-control" %>
- </div>
+  </div>
   <div class="form_group" >
     <%= f.label :short_description %>
-    <%= f.text_area :short_description, class: "form-control", rows: 7 %>
+    <%= f.text_area :short_description, class: "form-control", rows: 4 %>
   </div>
   <div class="form_group" >
     <%= f.label :description %>
