@@ -11,7 +11,7 @@ class AssignmentsController < ApplicationController
     if @assignment.save
       redirect_to course_path(@course), notice: "You have successfully added a assignment."
     else
-      redirect_to course_path(@course), error: "There was an error processing your request. Please try again later."
+      render :new
     end
   end
 
