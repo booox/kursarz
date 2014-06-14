@@ -31,7 +31,13 @@
        <td><%= assignment_submission.status %></td>
     </tr>
     <tr>
-      <td><%= assignment_submission.output %></td>
+      <td>
+      <code>
+        <pre>
+          <%= assignment_submission.output %>
+        </pre>
+      </code>
+      </td>
     </tr>
   </table>
 
