@@ -99,6 +99,7 @@ ul.nav > li > a.avatar {
 /* Thumbnails */
 .thumbnail > .imageholder {
 	width: 100%;
+	max-height: 200px;
 	overflow: hidden;
 	background-repeat: no-repeat;
 	background-position: center center;
