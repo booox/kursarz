@@ -42,7 +42,7 @@
         <%= user.name %>
       </td>
       <td>
-        <%= link_to "Promote to teacher", course_course_teachers_path(@course) %>
+        <%= button_to "Promote to teacher", course_course_teachers_path(@course) %>
       </td>
       <td>
         <%= link_to "Ejection", course_course_signup_path(@course, id: @course.id), method: :delete, confirm: 'Are you sure?'%>
