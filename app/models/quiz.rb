@@ -5,6 +5,10 @@ class Quiz < ActiveRecord::Base
   has_many :answers
   has_many :quiz_submissions
 
+  validates :name, presence: true
+  validates :short_description, presence: true
+  validates :description, presence: true
+
   accepts_nested_attributes_for :questions
   accepts_nested_attributes_for :answers
 

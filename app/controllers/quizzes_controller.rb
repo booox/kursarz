@@ -12,7 +12,7 @@ class QuizzesController < ApplicationController
     if @quiz.save
       redirect_to courses_path, notice: "You have successfully added a quiz."
     else
-      redirect_to courses_path, error: "There was an error processing your request. Please try again later."
+      render :new, error: "There was an error processing your request. Please try again later."
     end
   end
 

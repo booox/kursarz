@@ -1,19 +1,28 @@
 <%= javascript_include_tag 'quiz_form' %>
 
+<% if @quiz.errors.any? %>
+<div class="alert alert-danger">
+  <% @quiz.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+</div>
+<% end %>
+
+
 <%= link_to '&times;'.html_safe, :back, role: "button", class: "close", "aria-hidden" => "true" %>
 <h1>Create new quiz for course <%= @course.name %></h1>
 
 <%= form_for [@course, @quiz] do |f| %>
-  <div class="form_group">
-    <%= f.label :name %>
+  <div class="form_group <%= "has-error" if @quiz.errors[:name].any? %>">
+    <%= f.label :name, class: 'control-label' %>
     <%= f.text_field :name, class: "form-control" %>
   </div>
-  <div class="form_group" >
-    <%= f.label :short_description %>
+  <div class="form_group <%= "has-error" if @quiz.errors[:name].any? %>">
+    <%= f.label :short_description, class: 'control-label' %>
     <%= f.text_area :short_description, class: "form-control", rows: 4 %>
   </div>
-  <div class="form_group" >
-    <%= f.label :description %>
+  <div class="form_group <%= "has-error" if @quiz.errors[:name].any? %>">
+    <%= f.label :description, class: 'control-label' %>
     <%= f.text_area :description, class: "form-control", rows: 7 %>
   </div>
 

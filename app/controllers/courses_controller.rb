@@ -44,7 +44,7 @@ class CoursesController < ApplicationController
     if @course.update(course_params)
       redirect_to courses_path, notice: "You've successfully updated course."
     else
-      redirect_to courses_path, error: "There was an error processing your request. Please try again later."
+      render :edit, error: "There was an error processing your request. Please try again later."
     end
   end
 
