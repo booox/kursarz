@@ -1,3 +1,18 @@
+var skaluj = function(pattern, node, imgX, imgY) {
+	var winX = pattern.width();
+	var winY = pattern.height();
+	var winS = winX/winY;
+
+	var newX = pattern.width();
+	var newY = Math.ceil(imgY*newX/imgX);
+
+	var newY1 = pattern.height();
+	var newX1 = Math.ceil(imgX*newY1/imgY);
+
+	if(newY < winY) node.css('background-size', newX1 + 'px ' + newY1 + 'px');
+	else node.css('background-size', newX + 'px ' + newY + 'px');
+}
+
 var ytresize = function() {
 	var pW = $('#main-page').width();
 	$('iframe').load().each(function() {
@@ -11,14 +26,22 @@ var ytresize = function() {
 }
 
 var courselist = function() {
-	// Image height
-
+	// Imageholder height
 	$('.imageholder').each(function() {
 		var width = $(this).width();
 		var height = Math.floor(width / 1.3);
 		$(this).height( height );
 	});
 
+	// Image scale
+	$('.imageholder').find('img').each(function() {
+		var src = $(this).attr('src');
+		$(this).parent().css('background-image','url('+src+')');
+		var imgX = $(this).width();
+		var imgY = $(this).height();
+		skaluj($(this).parent(), $(this).parent(), imgX, imgY);
+		$(this).css('visibility', 'hidden');
+	});
 }
 
 var ready = function() {
@@ -61,6 +84,10 @@ var ready = function() {
 
 $(document).ready(ready);
 $(document).on('page:load', ready);
+
+$(window).load(function() {
+	courselist();
+});
 
 // window.resize
 $(window).resize(function() {
