@@ -32,6 +32,10 @@ body {
 }
 
 /* nav */ 
+.navbar-default {
+	background-color: rgba(248,248,248,.9);
+}
+
 .navbar-brand > img {
 	height: 15px;
 	margin-top: -5px;
