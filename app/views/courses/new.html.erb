@@ -1,4 +1,9 @@
+<div class="alert alert-warning">
+  <p><span class="glyphicon glyphicon-bell"></span> You can use <a href="http://en.wikipedia.org/wiki/Markdown">markdown</a> syntax in name and decription fields.</p>
+</div>
+
 <%= link_to '&times;'.html_safe, :back, role: "button", class: "close", "aria-hidden" => "true" %>
+
 <h1>Create new course</h1>
 
 <%= form_for @course, role: 'form' do |f| %>
