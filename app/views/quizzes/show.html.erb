@@ -1,6 +1,12 @@
-<div class="alert alert-warning">
-  <p>You are allowed to submit quiz only once, choose your answers wisely.</p>
-</div>
+<% if @quiz_submission %>
+  <div class="alert alert-success">
+    <p>You've scored <%= @quiz_submission.score  %> / <%= @quiz.score %>. You can review your answers.</p>
+  </div>
+<% else %>
+  <div class="alert alert-warning">
+    <p>You are allowed to submit quiz only once, choose your answers wisely.</p>
+  </div>
+<% end %>
 
 <%= form_tag course_quiz_quiz_submissions_path(@course, @quiz, QuizSubmission.new) do %>
 
@@ -12,9 +18,11 @@
       </div>
       <div class="panel-body">
         <% question.answers.each do |answer| %>
-            <div class="form-group checkbox has-error">
+            <div class="form-group checkbox <%= 'has-success' if @quiz_submission.present? && @quiz_submission.checked_answers.present? && @quiz_submission.checked_answers.has_key?(answer.id.to_s) && answer.correct? %> 
+              <%= 'has-error' if @quiz_submission.present? && @quiz_submission.checked_answers.present? && @quiz_submission.checked_answers.has_key?(answer.id.to_s) && !answer.correct? %>
+              <%= 'has-error' if @quiz_submission.present? && @quiz_submission.checked_answers.present? && !@quiz_submission.checked_answers.has_key?(answer.id.to_s) && answer.correct? %> ">
               <%= label_tag answer.id, answer.content, class: 'control-label'%>
-              <%= check_box_tag answer.id %>
+              <%= check_box_tag answer.id, "", @quiz_submission.present? && @quiz_submission.checked_answers.present? && @quiz_submission.checked_answers.has_key?(answer.id.to_s)%>
             </div><!-- /input-group -->
         <% end %>
 
@@ -23,24 +31,8 @@
 
   <% end %>
 
-  <%= submit_tag("Submit", :class => "submit btn btn-primary") %>
-
-<% end %>
-
-<h2>Submissions</h2>
-<% if @quiz_submissions.any? %>
-  <% @quiz_submissions.each do |quiz_submission| %>
-
-    <table class='table'>
-      <tr>
-        <td><%= quiz_submission.updated_at %></td>
-      </tr>
-      <tr>
-         <td>Score: <%= quiz_submission.score %> / <%= @quiz.score %></td>
-      </tr>
-    </table>
-
+  <% unless @quiz_submission %>
+    <%= submit_tag("Submit", :class => "submit btn btn-primary") %>
   <% end %>
-<% else %>
-  <p>You don't have any submissions for this quiz.</p>
+
 <% end %>

@@ -22,7 +22,7 @@ class QuizzesController < ApplicationController
 
   def show
     @quiz = @course.quizzes.find(params[:id])
-    @quiz_submissions = @quiz.quiz_submissions.by_user(current_user)
+    @quiz_submission = @quiz.quiz_submissions.by_user(current_user).last
   end
 
   def destroy
