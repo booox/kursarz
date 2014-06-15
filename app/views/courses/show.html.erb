@@ -58,7 +58,7 @@
         </a>
         <div class="media-body">
           <h4 class="media-heading"><%= link_to lesson.name, course_lesson_path(@course, lesson) %></h4>
-          <%= render_markdown(lesson.description) %>
+          <%= render_markdown(lesson.short_description) %>
           <button type="button" class="btn btn-link pull-right">
           <% if policy(lesson).update? %>
             <%= link_to content_tag(:span, ''), edit_course_lesson_path(@course, lesson), class: "glyphicon glyphicon-pencil" %>
@@ -82,7 +82,7 @@
         </a>
         <div class="media-body">
           <h4 class="media-heading"><%= link_to assignment.name, course_assignment_path(@course, assignment) %></h4>
-          <%= render_markdown(assignment.description) %>
+          <%= render_markdown(assignment.short_description) %>
           <button type="button" class="btn btn-link pull-right">
           <% if policy(assignment).update? %>
             <%= link_to content_tag(:span, ''), edit_course_assignment_path(@course, assignment), class: "glyphicon glyphicon-pencil" %>
@@ -106,7 +106,7 @@
         </a>
         <div class="media-body">
           <h4 class="media-heading"><%= link_to quiz.name, course_quiz_path(@course, quiz) %></h4>
-          <%= render_markdown(quiz.description) %>
+          <%= render_markdown(quiz.short_description) %>
           <button type="button" class="btn btn-link pull-right">
           <% if policy(quiz).destroy? %>
             <%= link_to content_tag(:span, ''), course_quiz_path(@course, quiz), data: { confirm:"Are you sure? THIS IS IRREVERSIBLE" }, class: "glyphicon glyphicon-trash", method: :delete %>
