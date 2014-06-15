@@ -1,3 +1,7 @@
+<div class="alert alert-warning">
+  <p>You are allowed to submit quiz only once, choose your answers wisely.</p>
+</div>
+
 <%= form_tag course_quiz_quiz_submissions_path(@course, @quiz, QuizSubmission.new) do %>
 
   <% @quiz.questions.each do |question| %>
@@ -8,8 +12,8 @@
       </div>
       <div class="panel-body">
         <% question.answers.each do |answer| %>
-            <div class="checkbox">
-              <%= label_tag answer.id, render_markdown(answer.content) %>
+            <div class="form-group checkbox has-error">
+              <%= label_tag answer.id, answer.content, class: 'control-label'%>
               <%= check_box_tag answer.id %>
             </div><!-- /input-group -->
         <% end %>

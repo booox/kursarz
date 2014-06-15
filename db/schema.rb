@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140615140624) do
+ActiveRecord::Schema.define(version: 20140615165000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "answers", force: true do |t|
     t.string   "content",     null: false
@@ -109,6 +110,7 @@ ActiveRecord::Schema.define(version: 20140615140624) do
     t.datetime "updated_at"
     t.integer  "quiz_id"
     t.integer  "user_id"
+    t.hstore   "checked_answers"
   end
 
   create_table "quizzes", force: true do |t|

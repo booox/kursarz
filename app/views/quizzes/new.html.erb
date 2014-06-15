@@ -1,5 +1,11 @@
 <%= javascript_include_tag 'quiz_form' %>
 
+<div class="alert alert-warning">
+  <p><span class="glyphicon glyphicon-bell"></span> You can use <a href="http://en.wikipedia.org/wiki/Markdown">markdown</a> syntax in name, decription fields and questions.</p>
+  <p>If you want to add more questions or answers, just click the + links.</p>
+</div>
+
+
 <% if @quiz.errors.any? %>
 <div class="alert alert-danger">
   <% @quiz.errors.full_messages.each do |message| %>

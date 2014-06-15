@@ -1,5 +1,10 @@
 <%= javascript_include_tag 'assignment' %>
 
+<div class="alert alert-warning">
+  <p><span class="glyphicon glyphicon-bell"></span> You can use <a href="http://en.wikipedia.org/wiki/Markdown">markdown</a> syntax in name, decription fields and questions.</p>
+  <p>Remember to add careful description to assignments not to make student confused.</p>
+</div>
+
 <% if @assignment.errors.any? %>
   <div class="alert alert-danger">
     <% @assignment.errors.full_messages.each do |message| %>

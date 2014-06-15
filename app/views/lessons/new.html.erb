@@ -1,3 +1,8 @@
+<div class="alert alert-warning">
+  <p><span class="glyphicon glyphicon-bell"></span> You can use <a href="http://en.wikipedia.org/wiki/Markdown">markdown</a> syntax in name, decription fields and questions.</p>
+  <p>Currently we support only links to videos from YouTube.</p>
+</div>
+
 <% if @lesson.errors.any? %>
   <div class="alert alert-danger">
     <% @lesson.errors.full_messages.each do |message| %>
@@ -10,7 +15,7 @@
 <h1>Create new lesson for course <%= @course.name %></h1>
 
 <%= form_for [@course, @lesson], role: 'form', role: 'form' do |f| %>
-  <%= render 'lessons/form' %>
+  <%= render 'lessons/form', f: f %>
 
   <div class="form_group">
     <input class="btn btn-primary" type="submit" value="Create lesson">
