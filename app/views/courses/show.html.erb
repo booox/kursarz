@@ -28,7 +28,7 @@
 </div>
 
 <!-- Sign Up -->
-<% if !current_user.is_signed_up_for?(@course) %>
+<% if policy(@course_role).create? && !current_user.is_signed_up_for?(@course) %>
   <%= form_for [@course, @course_role], url: course_course_signups_path(@course), role: 'form', role: 'form' do |f| %>
     <%= f.submit "Sign up", class: "btn btn-primary" %>
   <% end %>
