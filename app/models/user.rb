@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
   has_many :quizzes
   has_many :lessons
 
+  has_many :lesson_shows
   has_many :assignment_submissions
+  has_many :quiz_submissions
 
   has_many :course_roles
   has_many :student_roles, -> { where(name: 'student') }, class_name: 'CourseRole'
@@ -51,5 +53,17 @@ class User < ActiveRecord::Base
 
   def courses_limit
     super || 0
+  end
+
+  def score_in(course)
+  end
+
+  def completed(course)
+    completed = 0
+    completed += lesson_shows.where(course_id: course.id).count
+    completed += assignment_submissions.where(course_id: course.id).select('assignment_id').uniq.count
+    completed += quiz_submissions..where(course_id: course.id, select('quiz_id').uniq.count
+
+    completed / course.completed
   end
 end
