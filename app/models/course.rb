@@ -29,4 +29,10 @@ class Course < ActiveRecord::Base
   def screenshot_url
     super || lessons.first.try(:screenshot_url) || "holder.js/750x563/auto/sky/text:#{name}"
   end
+
+  def completed
+    completed = lessons.count + assignments.count + quizzes.count
+
+    completed > 0 ? completed : 10
+  end
 end

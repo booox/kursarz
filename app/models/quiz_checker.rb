@@ -22,7 +22,7 @@ class QuizChecker
 
     score = 0 if score < 0
 
-    @quiz_submission = @quiz.quiz_submissions.new(score: score, checked_answers: checked_answers, user_id: @current_user.id)
+    @quiz_submission = @quiz.quiz_submissions.new(course: @quiz.course, score: score, checked_answers: checked_answers, user_id: @current_user.id)
     @quiz_submission.save
 
     @quiz_submission

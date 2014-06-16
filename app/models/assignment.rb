@@ -14,4 +14,7 @@ class Assignment < ActiveRecord::Base
   def screenshot_url
     "holder.js/750x563/auto/sky/text:#{name}"
   end
+
+  def total_score
+  end
 end
