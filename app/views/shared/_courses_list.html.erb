@@ -4,6 +4,13 @@
       <div class="imageholder">
       	<img src="<%= raw course.screenshot_url %>" alt="<%= course.name %>">
       </div>
+      <% if current_user.logged_in? %>
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= ((Float(current_user.completed(course)) / course.completed) * 100).round %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= ((Float(current_user.completed(course)) / course.completed) * 100).round %>%">
+            <%= ((Float(current_user.completed(course)) / course.completed) * 100).round %>%
+          </div>
+        </div>
+      <% end %>
       <div class="caption">
         <h3><%= course.name %></h3>
         <p><%= course.short_description %></p>

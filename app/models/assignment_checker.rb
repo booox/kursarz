@@ -5,6 +5,7 @@ class AssignmentChecker
   end
 
   def check!
+    @assignment_submission.course = @assignment.course
     @assignment_submission.status, @assignment_submission.output = runner.run!
     @assignment_submission.pending = false
     @assignment_submission.save!

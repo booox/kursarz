@@ -55,15 +55,12 @@ class User < ActiveRecord::Base
     super || 0
   end
 
-  def score_in(course)
-  end
-
   def completed(course)
     completed = 0
     completed += lesson_shows.where(course_id: course.id).count
     completed += assignment_submissions.where(course_id: course.id).select('assignment_id').uniq.count
-    completed += quiz_submissions..where(course_id: course.id, select('quiz_id').uniq.count
+    completed += quiz_submissions.where(course_id: course.id).select('quiz_id').uniq.count
 
-    completed / course.completed
+    completed
   end
 end

@@ -1,5 +1,7 @@
 class LessonsController < ApplicationController
   before_action :set_course
+  before_action :set_lesson, only: :show
+  before_action :show_lesson, only: :show
 
   def index
     @lessons = @course.lessons
@@ -34,7 +36,7 @@ class LessonsController < ApplicationController
   end
 
   def show
-    @lesson = @course.lessons.find(params[:id])
+
   end
 
   def destroy
@@ -46,6 +48,14 @@ class LessonsController < ApplicationController
 
   def set_course
     @course = Course.find_by!(url: params[:course_id])
+  end
+
+  def set_lesson
+    @lesson = @course.lessons.find(params[:id])
+  end
+
+  def show_lesson
+    LessonShow.find_or_create_by(lesson: @lesson, course: @course, user: current_user)
   end
 
   def lesson_params

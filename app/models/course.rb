@@ -30,11 +30,9 @@ class Course < ActiveRecord::Base
     super || lessons.first.try(:screenshot_url) || "holder.js/750x563/auto/sky/text:#{name}"
   end
 
-  def total_score
-    lessons.sum(:score) + quizzes.sum(:score) + assignments.sum(:score)
-  end
-
   def completed
-    lessons.count + assignments.count + quizzes.count
+    completed = lessons.count + assignments.count + quizzes.count
+
+    completed > 0 ? completed : 10
   end
 end
