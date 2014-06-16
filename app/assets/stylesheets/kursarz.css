@@ -197,6 +197,10 @@ a#show_description {
 	margin-top: 30px;
 }
 
+.course-item-edit:hover, .course-item-edit > a:hover {
+	text-decoration: none;
+}
+
 /* Courses edit */
 table.table > tbody > tr > th {
 	border-top: none;
