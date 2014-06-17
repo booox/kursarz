@@ -1,0 +1,22 @@
+<div class="form_group <%= "has-error" if @quiz.errors[:name].any? %>">
+<%= f.label :name, class: 'control-label' %>
+  <%= f.text_field :name, class: "form-control" %>
+</div>
+<div class="form_group <%= "has-error" if @quiz.errors[:name].any? %>">
+  <%= f.label :short_description, class: 'control-label' %>
+  <%= f.text_area :short_description, class: "form-control", rows: 4 %>
+</div>
+<div class="form_group <%= "has-error" if @quiz.errors[:name].any? %>">
+  <%= f.label :description, class: 'control-label' %>
+  <%= f.text_area :description, class: "form-control", rows: 7 %>
+</div>
+
+<div id="questions">
+  <%= f.fields_for :questions do |question| %>
+    <%= render 'question_fields', f: question %>
+  <% end %>
+
+  <div class='links'>
+    <%= link_to_add_association 'Add question', f, :questions %>
+  </div>
+</div>
