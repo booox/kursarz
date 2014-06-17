@@ -35,6 +35,7 @@ class QuizzesController < ApplicationController
 
   def show
     @quiz = @course.quizzes.find(params[:id])
+    @questions = @quiz.questions.order('random()')
     @quiz_submission = @quiz.quiz_submissions.by_user(current_user).last
     @quiz_submissions = @quiz.quiz_submissions.by_user(current_user)
   end

@@ -4,16 +4,23 @@
 
 <%= form_tag course_quiz_quiz_submissions_path(@course, @quiz, QuizSubmission.new) do %>
 
-  <% @quiz.questions.each do |question| %>
+  <% @questions.each do |question| %>
     <div class="panel panel-default">
       <div class="panel-heading">
         <%= render_markdown(question.content) %>
       </div>
       <div class="panel-body">
-        <% question.answers.each do |answer| %>
+        <% question.answers.order('random()').each do |answer| %>
             <div class="form-group checkbox">
-              <%= label_tag answer.id, answer.content, class: 'control-label'%>
-              <%= check_box_tag answer.id, "" %>
+              <% if true %>
+                <%= label_tag answer.id, answer.content, class: 'control-label' %>
+                <%= check_box_tag answer.id, "" %>
+              <% else %>
+                <label>
+                  <input id="<%= question.id %>_<%= answer.id %>" name="<%= question.id %>" type="radio" value="<%= answer.id %>" >
+                  <%= answer.content %>
+                </label>
+              <% end %>
             </div><!-- /input-group -->
         <% end %>
 

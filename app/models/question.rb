@@ -7,6 +7,6 @@ class Question < ActiveRecord::Base
   accepts_nested_attributes_for :answers, allow_destroy: true
 
   def multiple_correct_answers?
-    answers.where(correct: false).size > 1
+    answers.where(correct: true).size > 1
   end
 end
