@@ -14,7 +14,7 @@
     <div class="panel-body">
       <div class="answers">
         <%= f.fields_for :answers do |answer| %>
-          <%= render 'question_fields', f: answer %>
+          <%= render 'answer_fields', f: answer %>
         <% end %>
 
         <div class="links">
