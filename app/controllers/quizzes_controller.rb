@@ -1,6 +1,5 @@
 class QuizzesController < ApplicationController
   before_action :set_course
-  before_action -> { normalize_nested_params(params) }, only: :create
 
   def new
     @quiz = @course.quizzes.build(user: current_user)

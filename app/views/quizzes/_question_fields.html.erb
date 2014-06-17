@@ -1,0 +1,26 @@
+<div class="nested-fields">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="field">
+          <div class="input-group">
+          <%= f.text_field :content, class: 'form-control' %>
+          <div class='input-group-addon'>
+            <%= link_to_remove_association "-", f %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-body">
+      <div class="answers">
+        <%= f.fields_for :answers do |answer| %>
+          <%= render 'question_fields', f: answer %>
+        <% end %>
+
+        <div class="links">
+          <%= link_to_add_association "+", f, :answers %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

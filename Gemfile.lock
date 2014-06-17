@@ -45,6 +45,7 @@ GEM
     celluloid (0.15.2)
       timers (~> 1.1.0)
     cliver (0.3.2)
+    cocoon (1.2.6)
     code_analyzer (0.4.5)
       sexp_processor
     codemirror-rails (3.22)
@@ -303,6 +304,7 @@ PLATFORMS
 DEPENDENCIES
   RedCloth
   capybara!
+  cocoon
   codemirror-rails
   coffee-rails (~> 4.0.0)
   cucumber-rails

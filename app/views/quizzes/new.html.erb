@@ -1,4 +1,3 @@
-<%= javascript_include_tag 'quiz_form' %>
 <%= javascript_include_tag 'quiz_validation' %>
 
 <div class="alert alert-warning">
@@ -34,27 +33,14 @@
   </div>
 
   <div id="questions">
+    <%= f.fields_for :questions do |question| %>
+      <%= render 'question_fields', f: question %>
+    <% end %>
 
-    <div class="singleQuestion">
-      <h3>Question</h3>
-      <div class="form-group">
-        <input type="text" class="form-control question-input" name="quiz[questions_attributes][][content]" />
-      </div>
-      <h5>Answers</h5>
-      <div class="form-group">
-        <div class="checkbox">
-          <input type="checkbox" name="quiz[questions_attributes][][answers_attributes][][correct]" value="">
-          <input type="text" class="form-control answer-input" name="quiz[questions_attributes][][answers_attributes][][content]" />
-        </div>
-      </div>
-      <a class="add-answer pull-right"><span class="glyphicon glyphicon-plus"></span> answer</a>
+    <div class='links'>
+      <%= link_to_add_association 'Add question', f, :questions %>
     </div>
-    
   </div>
-
-  <a id="add-question" class="pull-left"><span class="glyphicon glyphicon-plus"></span> question</a>
-
-
 
   <div class="submitCont">
     <input type="submit" class="btn btn-primary" value="Add quiz" />

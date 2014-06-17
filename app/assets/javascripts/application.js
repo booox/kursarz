@@ -15,3 +15,4 @@
 //= require codemirror/codemirror
 //= require turbolinks
 //= require holder/holder
+//= require cocoon
