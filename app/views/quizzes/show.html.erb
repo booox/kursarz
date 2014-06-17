@@ -31,10 +31,14 @@
       <td><%= quiz_submission.created_at %></td>
     </tr>
     <tr>
-      <%= quiz_submission.score %>/ <%= @quiz.score %>
+      <td>
+        <%= quiz_submission.score %> / <%= @quiz.score %>
+      </td>
     </tr>
     <tr>
-      <%= link_to "See answers", course_quiz_quiz_submission_path(@course, @quiz, quiz_submission) %>
+      <td>
+        <%= link_to "See answers", course_quiz_quiz_submission_path(@course, @quiz, quiz_submission) %>
+      </td>
     </tr>
   <% end %>
 </table>

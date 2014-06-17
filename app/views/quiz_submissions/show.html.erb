@@ -11,9 +11,9 @@
       </div>
       <div class="panel-body">
         <% question.answers.each do |answer| %>
-            <div class="form-group checkbox <%= 'has-success' if @quiz_submission.present? && @quiz_submission.checked_answers.present? && @quiz_submission.checked_answers.has_key?(answer.id.to_s) && answer.correct? %> 
-              <%= 'has-error' if @quiz_submission.present? && @quiz_submission.checked_answers.present? && @quiz_submission.checked_answers.has_key?(answer.id.to_s) && !answer.correct? %>
-              <%= 'has-error' if @quiz_submission.present? && @quiz_submission.checked_answers.present? && !@quiz_submission.checked_answers.has_key?(answer.id.to_s) && answer.correct? %> ">
+            <div class="form-group checkbox <%= 'has-success' if answer.correct? && @quiz_submission.checked_answers.has_key?(answer.id.to_s) %>
+              <%= 'has-error' if answer.correct? && @quiz_submission.checked_answers.has_key?(answer.id.to_s) %>
+              <%= 'has-error' if answer.correct? && !@quiz_submission.checked_answers.has_key?(answer.id.to_s) %>
               <%= label_tag answer.id, answer.content, class: 'control-label'%>
               <%= check_box_tag answer.id, "", @quiz_submission.present? && @quiz_submission.checked_answers.present? && @quiz_submission.checked_answers.has_key?(answer.id.to_s)%>
             </div><!-- /input-group -->
