@@ -8,4 +8,5 @@
 
 <h1><%= @lesson.name %> <small>in <%= @course.name %></small></h1>
 <%= youtube_iframe(@lesson.video_id) %>
+
 <%= render_markdown @lesson.description %>
