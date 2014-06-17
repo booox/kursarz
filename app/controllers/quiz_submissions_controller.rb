@@ -6,7 +6,7 @@ class QuizSubmissionsController < ApplicationController
 
     @quiz_submission = quiz_checker.check
 
-    redirect_to course_quiz_quiz_submission_path(@course, @quiz_submission.quiz, @quiz_submission), notice: "Your answers have been submitted and checked. Scroll down to see results."
+    redirect_to course_quiz_path(@course, @quiz_submission.quiz), notice: "Your answers have been submitted and checked. Scroll down to see results."
   end
 
   def show
