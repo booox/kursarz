@@ -45,5 +45,7 @@ group :test do
 end
 
 group :development, :test do
-    gem 'railroady'
+  gem 'railroady'
 end
+
+gem 'rails_12factor', group: :production
