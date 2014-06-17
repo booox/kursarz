@@ -1,0 +1,29 @@
+<div class="alert alert-success">
+  <p>You've scored <%= @quiz_submission.score  %> / <%= @quiz.score %>. You can review your answers.</p>
+</div>
+
+<%= form_tag course_quiz_quiz_submissions_path(@course, @quiz, QuizSubmission.new) do %>
+
+  <% @quiz.questions.each do |question| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= render_markdown(question.content) %>
+      </div>
+      <div class="panel-body">
+        <% question.answers.each do |answer| %>
+            <div class="form-group checkbox <%= 'has-success' if @quiz_submission.present? && @quiz_submission.checked_answers.present? && @quiz_submission.checked_answers.has_key?(answer.id.to_s) && answer.correct? %> 
+              <%= 'has-error' if @quiz_submission.present? && @quiz_submission.checked_answers.present? && @quiz_submission.checked_answers.has_key?(answer.id.to_s) && !answer.correct? %>
+              <%= 'has-error' if @quiz_submission.present? && @quiz_submission.checked_answers.present? && !@quiz_submission.checked_answers.has_key?(answer.id.to_s) && answer.correct? %> ">
+              <%= label_tag answer.id, answer.content, class: 'control-label'%>
+              <%= check_box_tag answer.id, "", @quiz_submission.present? && @quiz_submission.checked_answers.present? && @quiz_submission.checked_answers.has_key?(answer.id.to_s)%>
+            </div><!-- /input-group -->
+        <% end %>
+
+      </div>
+    </div>
+
+  <% end %>
+<% end %>
+
+
+<%= link_to "Try again", course_quiz_path(@course, @quiz), class: 'btn btn-success' %>

@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       resources :assignment_submissions, only: [:show, :create, :new]
     end
     resources :quizzes, only: [:index, :show, :create, :new, :destroy] do
-      resources :quiz_submissions, only: [:create]
+      resources :quiz_submissions, only: [:create, :show]
     end
     resources :course_signups, only: [:create, :destroy]
     resources :course_teachers, only: [:create, :destroy]

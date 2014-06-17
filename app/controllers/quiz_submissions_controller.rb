@@ -11,6 +11,7 @@ class QuizSubmissionsController < ApplicationController
 
   def show
     @quiz_submission = QuizSubmission.by_user(current_user).find(params[:id])
+    @quiz = @quiz_submission.quiz
   end
 
   private
