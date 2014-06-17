@@ -111,7 +111,7 @@
           <%= render_markdown(quiz.short_description) %>
           <button type="button" class="btn btn-link pull-right course-item-edit">
             <% if policy(quiz).update? %>
-	            <%= link_to content_tag(:span, ''), edit_course_quiz_path(@course, quiz), class: "glyphicon glyphicon-trash" %>
+	            <%= link_to content_tag(:span, ''), edit_course_quiz_path(@course, quiz), class: "glyphicon glyphicon-pencil" %>
             <% end %>
 	          <% if policy(quiz).destroy? %>
 	            <%= link_to content_tag(:span, ''), course_quiz_path(@course, quiz), data: { confirm:"Are you sure? THIS IS IRREVERSIBLE" }, class: "glyphicon glyphicon-trash", method: :delete %>
