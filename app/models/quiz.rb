@@ -9,8 +9,8 @@ class Quiz < ActiveRecord::Base
   validates :short_description, presence: true
   validates :description, presence: true
 
-  accepts_nested_attributes_for :questions
-  accepts_nested_attributes_for :answers
+  accepts_nested_attributes_for :questions, allow_destroy: true
+  accepts_nested_attributes_for :answers, allow_destroy: true
 
   def screenshot_url
     super || "holder.js/750x563/auto/sky/text:#{name}"

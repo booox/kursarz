@@ -24,7 +24,13 @@ class QuizzesController < ApplicationController
   end
 
   def update
+    @quiz = @course.quizzes.find(params[:id])
 
+    if @quiz.update(quiz_params)
+      redirect_to course_quiz_path(@course, @quiz), notice: "You've successfully updated quiz."
+    else
+      render :edit, error: "There was an error processing your request. Please try again later."
+    end
   end
 
   def show
@@ -53,6 +59,6 @@ class QuizzesController < ApplicationController
   end
 
   def quiz_params
-    params.require(:quiz).permit(:name, :short_description, :description, questions_attributes: [:content, answers_attributes: [:correct, :content]])
+    params.require(:quiz).permit(:id, :name, :short_description, :description, questions_attributes: [:id, :content, :_destroy, answers_attributes: [:id, :correct, :content, :_destroy]])
   end
 end
