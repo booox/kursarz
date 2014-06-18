@@ -5,6 +5,7 @@
 <%= form_tag course_quiz_quiz_submissions_path(@course, @quiz, QuizSubmission.new) do %>
 
   <% @questions.each do |question| %>
+    <% next unless question.answers.any? %>
     <div class="panel panel-default">
       <div class="panel-heading">
         <%= render_markdown(question.content) %>
