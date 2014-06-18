@@ -15,20 +15,19 @@
         <%
           klass = 'label-success' if answer.correct? && @quiz_submission.checked_answers.has_key?(answer.id.to_s)
           klass = 'label-danger' if !answer.correct? && @quiz_submission.checked_answers.has_key?(answer.id.to_s)
-          klass = 'label-danger' if answer.correct? && !@quiz_submission.checked_answers.has_key?(answer.id.to_s)
+          klass = 'label-success' if answer.correct? && !@quiz_submission.checked_answers.has_key?(answer.id.to_s)
         %>
-          
-          <div class="form-group checkbox <%= klass %>">
-            <% if true %>
-              <%= label_tag answer.id, answer.content, class: "#{klass} control-label" %>
-              <%= check_box_tag answer.id, "", @quiz_submission.checked_answers.has_key?(answer.id.to_s) %>
-            <% else %>
-              <label class='label <%= klass %>'%>
-                <%= radio_button_tag question.id, answer.id, @quiz_submission.checked_answers.has_key?(answer.id.to_s) %>
-                <%= answer.content %>
-              </label>
-            <% end %>
-          </div><!-- /input-group -->
+        <div class="form-group checkbox <%= klass %>">
+          <% if true %>
+            <%= label_tag answer.id, answer.content, class: "#{klass} control-label" %>
+            <%= check_box_tag answer.id, "", @quiz_submission.checked_answers.has_key?(answer.id.to_s) %>
+          <% else %>
+            <label class='label <%= klass %>'%>
+              <%= radio_button_tag question.id, answer.id, @quiz_submission.checked_answers.has_key?(answer.id.to_s) %>
+              <%= answer.content %>
+            </label>
+          <% end %>
+        </div><!-- /input-group -->
         <% end %>
 
       </div>
