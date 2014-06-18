@@ -4,6 +4,8 @@ class Question < ActiveRecord::Base
 
   validates :content, presence: true
 
+  validates :answers , length: { minimum: 1, message: "You must provide at least one answer" }
+
   accepts_nested_attributes_for :answers, allow_destroy: true
 
   def multiple_correct_answers?

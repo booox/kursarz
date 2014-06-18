@@ -9,6 +9,8 @@ class Quiz < ActiveRecord::Base
   validates :short_description, presence: true
   validates :description, presence: true
 
+  validates :questions, length: { minimum: 1, message: "You must provide at least one question" }
+
   accepts_nested_attributes_for :questions, allow_destroy: true
   accepts_nested_attributes_for :answers, allow_destroy: true
 
