@@ -3,6 +3,12 @@ class QuizzesController < ApplicationController
 
   def new
     @quiz = @course.quizzes.build(user: current_user)
+
+    @question = @quiz.questions.build
+
+    4.times do
+      @question.answers.build
+    end
   end
 
   def create
