@@ -7,6 +7,8 @@ class Lesson < ActiveRecord::Base
   validates :short_description, presence: true
   validates :description, presence: true
 
+  has_many :lesson_shows, dependent: :destroy
+
   def video_id
     self.video_url.sub(/(\S)*watch\?v=/, "")
   end

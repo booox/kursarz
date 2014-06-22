@@ -9,12 +9,9 @@ class Assignment < ActiveRecord::Base
   belongs_to :course
   belongs_to :user
 
-  has_many :assignment_submissions
+  has_many :assignment_submissions, dependent: :destroy
 
   def screenshot_url
     "holder.js/750x563/auto/sky/text:#{name}"
-  end
-
-  def total_score
   end
 end

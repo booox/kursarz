@@ -1,9 +1,10 @@
 class Quiz < ActiveRecord::Base
   belongs_to :course
   belongs_to :user
-  has_many :questions
-  has_many :answers
-  has_many :quiz_submissions
+
+  has_many :questions, dependent: :destroy
+  has_many :answers, dependent: :destroy
+  has_many :quiz_submissions, dependent: :destroy
 
   validates :name, presence: true
   validates :short_description, presence: true
