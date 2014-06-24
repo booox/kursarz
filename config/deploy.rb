@@ -18,7 +18,9 @@ set :stage, :production
 
 set :keep_releases, 5
 
-#set :linked_files, %w{config/database.yml config/config.yml}
+set :rvm_ruby_version, '2.1.2@kursarz'
+
+set :linked_files, %w{config/database.yml config/unicorn.rb}
 #set :linked_dirs, %w{bin log tmp vendor/bundle public/system}
 
 namespace :deploy do
