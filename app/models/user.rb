@@ -18,6 +18,10 @@ class User < ActiveRecord::Base
   has_many :teached_courses, through: :teacher_roles, source: :course
   has_many :signup_courses, through: :student_roles, source: :course
 
+  def name
+    super || login
+  end
+
   def logged_in?
     true
   end
