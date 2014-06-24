@@ -52,3 +52,7 @@ group :development, :test do
 end
 
 gem "cocoon"
+
+group :development do
+  gem 'capistrano3-unicorn'
+end
