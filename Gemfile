@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.1.2'
 
 gem 'capybara', group: :test, git: "https://github.com/jnicklas/capybara"
+gem 'capistrano', '~> 3.2.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'draper'
 gem 'factory_girl_rails'
