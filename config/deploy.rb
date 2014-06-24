@@ -12,7 +12,7 @@ set :log_level, :info
 
 set :deploy_to, '/home/kursarz/apps/kursarz'
 
-set :branch, :master
+set :branch, :production
 
 set :stage, :production
 
