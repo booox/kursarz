@@ -26,7 +26,7 @@ set :unicorn_rack_env, :production
 
 set :rails_env, "production"
 
-set :linked_files, %w{config/database.yml config/unicorn.rb}
+set :linked_files, %w{config/secrets.yml config/database.yml config/unicorn.rb}
 
 set :linked_dirs, %w{bin log tmp tmp/pids vendor/bundle public/system}
 
