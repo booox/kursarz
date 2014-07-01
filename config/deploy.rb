@@ -20,8 +20,6 @@ set :keep_releases, 5
 
 set :rvm_ruby_version, '2.1.2@kursarz'
 
-set :unicorn_config_path, 'config/unicorn.rb'
-
 set :unicorn_rack_env, :production
 
 set :rails_env, "production"

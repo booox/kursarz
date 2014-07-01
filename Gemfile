@@ -54,5 +54,5 @@ end
 gem "cocoon"
 
 group :development do
-  gem 'capistrano3-unicorn'
+  gem 'capistrano3-unicorn', github: 'michaldarda/capistrano3-unicorn'
 end

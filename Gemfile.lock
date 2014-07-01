@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/michaldarda/capistrano3-unicorn.git
+  revision: 3449a038610744f5991eb6c6b8c1c63d62aa60df
+  specs:
+    capistrano3-unicorn (0.1.1)
+      capistrano (>= 3.1.0)
+
+GIT
   remote: https://github.com/jnicklas/capybara
   revision: 88da2cdc4c2356bdf43f3cc6370ae23a4aa743cc
   specs:
@@ -55,8 +62,6 @@ GEM
     capistrano-rvm (0.1.1)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
-    capistrano3-unicorn (0.1.1)
-      capistrano (>= 3.1.0)
     celluloid (0.15.2)
       timers (~> 1.1.0)
     cliver (0.3.2)
@@ -329,7 +334,7 @@ DEPENDENCIES
   capistrano (~> 3.2.0)
   capistrano-rails
   capistrano-rvm
-  capistrano3-unicorn
+  capistrano3-unicorn!
   capybara!
   cocoon
   codemirror-rails
